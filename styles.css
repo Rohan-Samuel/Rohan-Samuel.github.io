@@ -1,0 +1,65 @@
+:root {
+    --primary-color: #08D9D6; /* Default primary color */
+    --secondary-color: #252A34; /* Default secondary color */
+    --tertiary-color: #FF2E63; /* Default tertiary color */
+    --background-color: #EAEAEA; /* Default background color */
+    --text-color: #212529; /* Default text color */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+nav {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    
+}
+
+.container {
+    width: 65%;
+    margin: 0 auto;
+    padding: 5px 0;
+    overflow: hidden;
+    
+}
+
+nav h1 {
+    float: left;
+    padding: 0px;
+    margin: 10px 0px;    
+}
+
+nav ul {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 15px 0px;    
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 60px;
+}
+
+nav ul li a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+
+header {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+/* You can add more styles for your content here */
