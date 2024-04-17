@@ -156,12 +156,9 @@ header {
 
 
 
-.experiences {
-    margin-top: 20px;
-}
 
 .experience {
-    color: var(--text-color);
+    
     margin-bottom: 20px;
 }
 
@@ -169,14 +166,33 @@ header {
     font-size: 20px;
 }
 
-.experience h4 {
-    font-size: 18px;
+.experiences {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.experience {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.year {
+    width: 130px; /* Adjust width as needed */
+}
+
+.details {
+    margin-left: 20px;
+}
+
+.details h4 {
+    margin-top: 0;
+}
+
+.details p {
     margin-top: 5px;
 }
 
-.experience p {
-    margin-top: 5px;
-}
 
 footer {
     background-color: var(--text-color); /* Change background color */
