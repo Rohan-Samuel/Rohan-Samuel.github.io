@@ -81,19 +81,27 @@ header {
     margin-top: 20px;
 }
 
+.project-container {
+    position: relative;
+    flex: 0 0 30%; /* Adjust width as needed */
+    overflow: hidden;
+}
+
 .project {
     position: relative;
     flex: 0 0 30%; /* Adjust width as needed */
     overflow: hidden;
 }
 
+
+
 .project img {
+    display: block;
     width: 100%;
     height: auto;
-    transition: filter 0.3s ease;
 }
 
-.project .overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -113,10 +121,21 @@ header {
 
 .project .overlay h3 {
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     margin: 0;
 }
+
+.project-description {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    color: var(--text-color); /* Adjust text color */
+  
+}
+
+
+
 
 
 .experiences {
@@ -124,6 +143,7 @@ header {
 }
 
 .experience {
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -139,6 +159,34 @@ header {
 .experience p {
     margin-top: 5px;
 }
+
+footer {
+    background-color: var(--text-color); /* Change background color */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f8f9fa;
+}
+
 
 
 
