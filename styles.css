@@ -10,6 +10,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
+    color: var();
 }
 
 nav {
@@ -19,7 +20,7 @@ nav {
 }
 
 .container {
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
     padding: 5px 0;
     overflow: hidden;
@@ -30,6 +31,20 @@ nav h1 {
     float: left;
     padding: 0px;
     margin: 10px 0px;    
+}
+
+nav h1 {
+    float: left;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+}
+
+nav h1:hover {
+    cursor: pointer; /* Change cursor on hover */
+}
+
+nav h1:focus {
+    outline: none; /* Remove focus outline */
 }
 
 nav ul {
@@ -59,6 +74,49 @@ header {
     height: auto;
     display: block;
 }
+
+.project-gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.project {
+    flex: 0 0 30%; /* Adjust width as needed */
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+}
+
+.project h3 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.experiences {
+    margin-top: 20px;
+}
+
+.experience {
+    margin-bottom: 20px;
+}
+
+.experience h3 {
+    font-size: 20px;
+}
+
+.experience h4 {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.experience p {
+    margin-top: 5px;
+}
+
 
 
 
