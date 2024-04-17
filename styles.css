@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #08D9D6; /* Default primary color */
+    --primary-color: #62EBE1; /* Default primary color */
     --secondary-color: #252A34; /* Default secondary color */
     --tertiary-color: #FF2E63; /* Default tertiary color */
     --background-color: #EAEAEA; /* Default background color */
@@ -69,11 +69,34 @@ header {
     overflow: hidden;
 }
 
-.hero-image img {
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.hero img {
     width: 100%;
     height: auto;
-    display: block;
 }
+
+.hero-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin: 0;
+}
+
 
 .project-gallery {
     display: flex;
@@ -121,7 +144,7 @@ header {
 
 .project .overlay h3 {
     color: #fff;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     margin: 0;
 }
