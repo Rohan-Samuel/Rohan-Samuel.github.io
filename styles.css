@@ -33,19 +33,14 @@ nav h1 {
     margin: 10px 0px;    
 }
 
-nav h1 {
+nav a {
     float: left;
     text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
+    color: var(--tertiary-color) 
 }
 
-nav h1:hover {
-    cursor: pointer; /* Change cursor on hover */
-}
 
-nav h1:focus {
-    outline: none; /* Remove focus outline */
-}
+
 
 nav ul {
     float: right;
