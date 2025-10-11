@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font to the body */
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif; /* Apply Open Sans font to headings */
+}
+
+p {
+    font-family: 'Roboto', sans-serif; /* Apply Open Sans font to headings */
+}
+
+h3 {
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+}
