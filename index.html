@@ -5,34 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohan Samuel</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="fonts.css">
+    <!--CSS Links-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <!--Font references-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container">
+    <nav class="nav">
+        <div class="name">
             <h1><a href="index.html">Rohan Samuel</a></h1>
-            <ul>
-                <!-- <li><a href="about.html">About</a></li>-->
-                <li><a href="work.html#container">Work</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
         </div>
+        <ul class="nav-main-menu">
+            <li class="dropdown">
+                <a href="work/all.html#project-gallery" class="nav-link"><span>Work</span><i
+                        class="fa fa-chevron-down"></i></a>
+                <ul class="dropdown-content">
+                    <a href="work/games.html"><li>Games</li></a>
+                    <a href="work/film.html"><li>Film</li></a>
+                    <a href="work/3d.html"><li>3D</li></a>
+                </ul>
+            </li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
     </nav>
+
 
     <header>
         <div class="hero">
             <img src="img/Landing1.png" alt="Hero Image">
             <div class="hero-text">
-                <h1>XR Developer</h1>
-
+                <h1 id="hero-title" aria-live="polite">XR Developer</h1>
             </div>
         </div>
     </header>
@@ -86,7 +93,7 @@
 
         </div>
         <div class="more-work-btn-container">
-            <a href="work.html" class="more-work-btn">
+            <a href="work/all.html" class="more-work-btn">
                 See More Work
             </a>
         </div>
@@ -96,49 +103,98 @@
         <div class="experiences">
             <h2>Experience</h2>
             <div class="experience">
+                <div class="year">2025–Present</div>
+                <div class="details">
+                    <h4>Lab Instructor - Kwantlen Polytechnic University</h4>
+                    <p>Led hands-on XR development labs using Unity and XR Interaction Toolkit.</p>
+                </div>
+            </div>
+            <div class="experience">
                 <div class="year">2023-2024</div>
                 <div class="details">
                     <h4>Teaching Assistant - Simon Fraser University</h4>
-                    <p>Guided students through labs, instructed in Maya software, and provided technical support, while
-                        also grading projects and providing feedback.</p>
+                    <p>Guided students through labs, instructed in Maya, provided technical support, and graded
+                        projects.</p>
                 </div>
             </div>
             <div class="experience">
                 <div class="year">2023</div>
                 <div class="details">
                     <h4>Bachelor of Science - Simon Fraser University</h4>
-                    <p>The School of Interactive Arts and Technology (SIAT) is an interdisciplinary research-focused
-                        school where technology and art combine.</p>
+                    <p>School of Interactive Arts and Technology (SIAT): interdisciplinary research-focused program
+                        combining art
+                        and technology.</p>
                 </div>
             </div>
             <div class="experience">
                 <div class="year">2022</div>
                 <div class="details">
                     <h4>Technical Assistant (Web Developer)</h4>
-                    <p>SFU Our Learning Community website</p>
+                    <p>SFU Our Learning Community website — development and maintenance support.</p>
 
                 </div>
             </div>
         </div>
 
         <section class="skills">
-
             <h2>Skills</h2>
-            <div>
+
+            <div class="skills__group skills__primary" aria-labelledby="skills-primary-title">
+                <h3 id="skills-primary-title" class="skills__title">Core Skills</h3>
                 <div class="skill-row">
-                    <div class="skill"><img src="img/Unitylogo.png" alt="Unity">
+                    <!-- Add core skill items here -->
+
+                    <div class="skill">
+                        <img src="img/Unitylogo.png" alt="Unity logo">
                         <h3>Unity</h3>
                     </div>
-                    <div class="skill"><img src="img/mayalogo.png" alt="Maya">
-                        <h3>Maya</h3>
-                    </div>
-                    <div class="skill"><img src="img/unreal-1.svg" alt="Unreal Engine">
+                    <div class="skill">
+                        <img src="img/unreal-1.svg" alt="Unreal Engine logo">
                         <h3>Unreal Engine</h3>
                     </div>
-                    <div class="skill"><img src="img/adobelogo.png" alt="Adobe">
-                        <h3>Adobe</h3>
+                    <div class="skill">
+                        <img src="img/mayalogo.png" alt="Autodesk Maya logo">
+                        <h3>Maya</h3>
                     </div>
-                    <!-- Add more skill logos here -->
+                    <div class="skill">
+                        <img src="img/adobelogo.png" alt="Adobe Creative Suite logo">
+                        <h3>Interactive Media/Video Editing</h3>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="skills__group skills__secondary" aria-labelledby="skills-secondary-title">
+                <h3 id="skills-secondary-title" class="skills__title">Secondary Skills</h3>
+                <div class="skill-row skill-row--small">
+                    <!-- Add secondary (smaller) skill items here -->
+                    <!-- Example:-->
+                    <div class="skill">
+                        <img src="img/adobelogo.png" alt="Adobe Creative Suite logo">
+                        <h3>Programming: Python, JS, HTML, CSS</h3>
+                    </div>
+                    <div class="skill skill--small">
+                        <img src="img/gitlogo.png" alt="Git logo">
+                        <h3>Git</h3>
+                    </div>
+                    <div class="skill">
+                        <img src="img/substancelogo.png" alt="Substance Painter 3D Logo">
+                        <h3>Substance Painter 3D</h3>
+                    </div>
+
+                    <div class="skill">
+                        <img src="img/adobelogo.png" alt="Adobe Creative Suite logo">
+                        <h3>UI/UX</h3>
+                    </div>
+                    <div class="skill">
+                        <img src="img/adobelogo.png" alt="Adobe Creative Suite logo">
+                        <h3>Audio Engineering</h3>
+                    </div>
+
+
+
                 </div>
             </div>
         </section>
@@ -178,9 +234,6 @@
     </footer>
 
 
-
-
-    <!--  <script src="script.js"></script>  -->
 </body>
 
 </html>

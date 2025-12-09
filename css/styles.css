@@ -1,3 +1,5 @@
+/* ============= CSS Variables for Theming =============== */
+
 :root {
     --primary-color: #62EBE1;
     /* Default primary color */
@@ -11,112 +13,142 @@
     /* Default text color */
 }
 
+/* ============= BODY =============== */
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var();
 }
 
-h2 {
-    padding-bottom: 15px;
-    margin-top: 10px;
+/* ============= Reusable CSS =============== */
+
+ul{
+    list-style-type: none;
+
 }
+
+a{
+    text-decoration: none;
+    color: var(--tertiary-color);
+    font-weight: 500;
+
+}
+
+/* ============= Navigation Bar =============== */
 
 nav {
-    background-color: var(--secondary-color);
-    
 
-}
-
-.more-work-btn-container {
     display: flex;
-    justify-content: flex-end;
-    margin: 2rem 0;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20vw;
+    height: 70px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
-.more-work-btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    background: #0078d4;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: background 0.2s;
+.name a{
+    color: var(--tertiary-color);
+    font-size: 2rem;
+    font-weight: 1000;
+    align-items: center ;
 }
 
-.more-work-btn:hover {
-    background: #005fa3;
+.nav-main-menu {
+    display: flex;
 }
 
-.navbar {
+.nav-link {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 26px 10px;
+    margin-inline: 10px;
+    transition: .3s;
+}
 
-    width: 100%;
-    top: 0;
-    position: fixed;
+.nav-link:hover {
+    color: var(--primary-color)
+}
+
+.nav-link span {
+margin-right: 5px;
+}
+
+.fa-chevron-down {
+    font-size: 12px;
+    transition: .3s;
+}
+
+/* ============= Dropdown =============== */
+
+.dropdown:hover .fa-chevron-down{
+    transform: rotate(180deg);
+}
+
+.dropdown:hover .nav-link {
+    color: var(--primary-color);
+}
+
+.dropdown{
+    position: relative;
+}
+
+.nav-main-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    background-color: var(--secondary-color);
+    min-width: 130px;
+    border-top: 3px solid var(--secondary-color);
+    padding-left: 0;
+    border-radius: 0 0 3px 3px;
+    animation: slideUp .3s;
+    box-shadow: var(--tertiary-color);
     z-index: 1000;
-    transition: top 0.3s;
-    /* Add smooth transition */
-    font-family: 'Raleway', sans-serif;
+}
+
+.dropdown-content li{
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+}
+
+.dropdown-content li:hover  {
+    background-color: var(--tertiary-color);
+}
+
+.dropdown-content li:hover  {
+    color: var(--background-color);
+
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
     color: var(--text-color);
     width: 60%;
     margin: 0 auto;
-    padding: 5px 0;
+    padding:  0;
     overflow: hidden;
 
 }
 
-nav h1 {
-    float: left;
-    padding: 0px;
-    margin: 10px 0px;
-}
-
-nav a {
-    float: left;
-    text-decoration: none;
-    /* Remove underline */
-    color: var(--tertiary-color)
-}
-
-nav a:hover {
-    
-}
-
-
-
-
-nav ul {
-    float: right;
-    list-style: none;
-    padding: 0;
-    margin: 15px 0px;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-left: 60px;
-}
-
-nav ul li a {
-    
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    color: var(--primary-color)
-}
-
-header {
-    position: relative;
-    overflow: hidden;
-}
+/* ============= Hero =============== */
 
 .hero {
     position: relative;
@@ -124,6 +156,7 @@ header {
 }
 
 .hero img {
+    z-index: -1;
     width: 100%;
     height: auto;
 }
@@ -148,6 +181,7 @@ header {
     margin: 0;
 }
 
+/* ============= Projects =============== */
 
 .project-gallery {
     display: flex;
@@ -163,12 +197,17 @@ header {
      position: relative; 
 }
 
-
+/* Slight rounding for project gallery images; keep overlay clipped to same radius */
+.project {
+    border-radius: 5px;
+    overflow: hidden;
+}
 
 .project img {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 0; /* let the .project container provide the rounding */
 }
 
 .overlay {
@@ -210,7 +249,7 @@ header {
 
 
 
-
+/* ============= Experience Section=============== */
 
 
 
@@ -251,6 +290,32 @@ h3 {
     margin-top: 5px;
 }
 
+/* Experience: horizontal layout with a vertical divider between year and details */
+.experiences .experience{
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-radius: 6px;
+}
+
+.experiences .year{
+    flex: 0 0 110px; /* fixed column for duration */
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: right;
+    padding-right: 1rem;
+    border-right:3px solid var(--tertiary-color); /* subtle divider */
+}
+
+.experiences .details{
+    flex: 1 1 auto;
+    padding-left: 1rem;
+    color: var(--text-color);
+}
+
+/* ============= Skills Section =============== */
+
 .skills {
 
     padding: 50px 0;
@@ -280,6 +345,67 @@ h3 {
 }
 
 .skill h3 {}
+
+
+
+/* Skills groups */
+.skills__group {
+    margin-top: 20px;
+}
+
+.skills__title {
+    margin: 0 0 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Core skill row uses existing .skill-row styles */
+.skills__primary .skill {
+    flex: 0 0 140px;
+    min-width: 120px;
+    padding: 0.9rem;
+    background: rgba(0,0,0,0.02);
+    border-radius: 10px;
+    text-align: center;
+}
+.skills__primary .skill img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto 8px;
+}
+.skills__primary .skill h3 {
+    margin: 10;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Secondary (smaller) skill sizing */
+.skills__secondary .skill {
+    flex: 0 0 96px;
+    min-width: 76px;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.015);
+    border-radius: 8px;
+    text-align: center;
+}
+.skills__secondary .skill img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin: 0 auto 6px;
+}
+.skills__secondary .skill h3,
+.skills__secondary .skill h4 {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* ============= Resume Section =============== */
 
 .resume-section {
     text-align: center;
@@ -347,6 +473,7 @@ h3 {
 }
 
 
+/* ============= Footer =============== */
 
 footer {
     background-color: var(--secondary-color);
@@ -509,6 +636,26 @@ button:hover {
 }
 
 
+/* ============= Responsive Design =============== */
+
+/* Stack on small screens and remove the vertical divider */
+@media (max-width: 600px){
+    .experiences .experience{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .experiences .year{
+        flex: none;
+        text-align: left;
+        padding-right: 0;
+        border-right: none;
+        padding-bottom: 0.25rem;
+    }
+    .experiences .details{
+        padding-left: 0;
+    }
+}
+
 @media (max-width: 770px){
     .project .overlay h3 {
         /* font-size: 25px; */
@@ -529,8 +676,47 @@ button:hover {
     .skill img {
       width: 60%;
     }
+    .experience p {
+        display: none;
+    }
     }
 
 
+
+/* make sure rows wrap nicely on narrow screens */
+@media (max-width: 770px) {
+    .skills__primary .skill { flex: 0 0 40%; min-width: 140px; }
+    .skills__secondary .skill { flex: 0 0 28%; min-width: 96px; }
+}
+
+/* Align "See More Work" button with left edge of project items (CSS-only) */
+.more-work-btn-container {
+    /* make container shrink to available width and align contents to start */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    margin-top: 1rem; /* keep spacing consistent */
+}
+
+/* ensure button itself does not introduce extra offset */
+.more-work-btn {
+    color: var(--background-color);
+    background-color: var(--tertiary-color);
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.more-work-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* If your project items use a grid/flex gap, match small screens */
+@media (max-width: 520px) {
+    .more-work-btn-container { justify-content: flex-start; }
+}
 
 /* You can add more styles for your content here */

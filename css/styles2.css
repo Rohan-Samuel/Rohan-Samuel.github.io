@@ -1,0 +1,133 @@
+/* ============= CSS Variables for Theming =============== */
+
+:root {
+    --primary-color: #62EBE1;
+    /* Default primary color */
+    --secondary-color: #252A34;
+    /* Default secondary color */
+    --tertiary-color: #FF2E63;
+    /* Default tertiary color */
+    --background-color: #EAEAEA;
+    /* Default background color */
+    --text-color: #1d2024;
+    /* Default text color */
+}
+
+/* ============= BODY =============== */
+
+body {
+    margin: 0;
+
+    background-color: var(--background-color);
+    color: var();
+}
+
+/* ============= Reusable CSS =============== */
+
+ul{
+    list-style-type: none;
+
+}
+
+a{
+    text-decoration: none;
+    color: var(--tertiary-color);
+    font-weight: 500;
+
+}
+
+/* ============= Navigation Bar =============== */
+
+nav {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 3vw;
+    height: 100px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.name {
+    color: var(--tertiary-color);
+    font-size: 1.5rem;
+    font-weight: 1000;
+    align-items: center ;
+}
+
+.nav-main-menu {
+    display: flex;
+}
+
+.nav-link {
+    padding: 26px 10px;
+    margin-inline: 10px;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color)
+}
+
+.nav-link span {
+margin-right: 5px;
+}
+
+.fa-chevron-down {
+    font-size: 12px;
+    transition: .3s;
+}
+
+/* ============= Dropdown =============== */
+
+.dropdown:hover .fa-chevron-down{
+    transform: rotate(180deg);
+}
+
+.dropdown:hover .nav-link {
+    color: var(--primary-color);
+}
+
+.dropdown{
+    position: relative;
+}
+
+.nav-main-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    background-color: var(--secondary-color);
+    min-width: 130px;
+    border-top: 3px solid var(--secondary-color);
+    padding-left: 0;
+    border-radius: 0 0 3px 3px;
+    animation: slideUp .3s;
+    box-shadow: var(--tertiary-color);
+}
+
+.dropdown-content li{
+    padding: 10px;
+}
+
+.dropdown-content li:hover {
+    background-color: var(--primary-color);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
