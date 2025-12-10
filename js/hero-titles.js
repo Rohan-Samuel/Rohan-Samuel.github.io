@@ -2,11 +2,12 @@
 
 (function () {
     const titles = [
-        "XR Developer",
-        "VR Artist",
-        "Unity Developer",
-        "Interaction Designer",
-        "3D Game Designer"
+        "Unity XR Developer",
+        "Gameplay Programmer",
+        "3D Artist",
+      //"Film Maker",
+      //"Interaction Designer",
+
     ];
 
     // Colors paired with titles (hex or any valid CSS color). If shorter, they'll wrap.
