@@ -362,10 +362,10 @@ h3 {
 
 /* Core skill row uses existing .skill-row styles */
 .skills__primary .skill {
-    flex: 0 0 140px;
+    flex: 0 0 250px;
     min-width: 120px;
     padding: 0.9rem;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0,0,0,0.0);
     border-radius: 10px;
     text-align: center;
 }
@@ -384,10 +384,10 @@ h3 {
 
 /* Secondary (smaller) skill sizing */
 .skills__secondary .skill {
-    flex: 0 0 96px;
+    flex: 0 0 150px;
     min-width: 76px;
     padding: 0.5rem;
-    background: rgba(0,0,0,0.015);
+    background: rgba(0,0,0,0);
     border-radius: 8px;
     text-align: center;
 }
