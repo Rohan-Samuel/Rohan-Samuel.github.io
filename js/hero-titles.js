@@ -2,11 +2,11 @@
 
 (function () {
     const titles = [
-        "Unity XR Developer",
+        "Unity Developer",
         "Gameplay Programmer",
         "3D Artist",
       //"Film Maker",
-      //"Interaction Designer",
+        "XR/Interaction Designer",
 
     ];
 
