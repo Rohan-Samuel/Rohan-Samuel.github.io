@@ -345,6 +345,19 @@ h3 {
     display: block;
     width: 100%;
     height: auto;
+    filter: brightness(0.78);
+}
+
+.skill-icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 8px;
+    color: var(--tertiary-color);
+    font-size: 4rem;
+    filter: brightness(0.78);
 }
 
 .skill h3 {}
@@ -399,6 +412,12 @@ h3 {
     height: 36px;
     object-fit: contain;
     margin: 0 auto 6px;
+}
+.skills__secondary .skill-icon-placeholder {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 6px;
+    font-size: 1.6rem;
 }
 .skills__secondary .skill h3,
 .skills__secondary .skill h4 {
