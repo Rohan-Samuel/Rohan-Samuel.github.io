@@ -34,11 +34,11 @@
                 <li><a class="nav-link" href="../contact.html">Contact</a></li>
         </nav>
 
-    <div class="container">
-        <div>
-            <h2>Harmony VR</h2>
-            <section class="project">
-                <div class="project-content">
+    <main class="container project-page">
+        <div class="project-page-content">
+            <h2 class="project-page-title">Harmony VR</h2>
+            <section class="project project-feature">
+                <div class="project-content project-feature-content">
 
                     <div class="project-info">
                         <img src="../img/harmony1.png" alt="Harmony VR underwater game environment">
@@ -47,16 +47,50 @@
                             <p>Programmer, Audio Engineer, Composer</p>
                         </div>
                     </div>
-                    <div>
-                        <h2>Harmony VR</h2>
+                    <div class="project-summary">
+                        <p class="project-kicker">VR Installation</p>
+                        <h2>Conduct the ocean. Compose the moment.</h2>
 
-                        <p>An immersive underwater musical VR experience where you can control the fishes and the music!
+                        <p>An immersive underwater musical VR experience where you can control the fish and the music.
                         </p>
-                        <!-- Add more information about the project as needed -->
                     </div>
 
                 </div>
-                <div>
+                <section class="project-metadata" aria-label="Harmony project details">
+                    <dl class="project-metadata-grid">
+                        <div class="project-metadata-item">
+                            <dt>Role</dt>
+                            <dd>Composer &amp; Audio Engineer, Unity Programmer, UI Design</dd>
+                        </div>
+                        <div class="project-metadata-item">
+                            <dt>Team</dt>
+                            <dd>5</dd>
+                        </div>
+                        <div class="project-metadata-item">
+                            <dt>Platform</dt>
+                            <dd>Meta Quest 2</dd>
+                        </div>
+                        <div class="project-metadata-item">
+                            <dt>Tools</dt>
+                            <dd>Unity, FL Studio, C#</dd>
+                        </div>
+                        <div class="project-metadata-item">
+                            <dt>Timeline</dt>
+                            <dd>Jan – Apr 2023 (one semester)</dd>
+                        </div>
+                        <div class="project-metadata-item project-metadata-links">
+                            <dt>Links</dt>
+                            <dd>
+                                <a href="https://teamharmony.itch.io/harmony" target="_blank" rel="noopener">Play on itch.io</a>
+                                <span aria-hidden="true">·</span>
+                                <a href="https://stephenkerschbaumer.wixsite.com/ocean-conductor-vr" target="_blank" rel="noopener">Project site</a>
+                                <span aria-hidden="true">·</span>
+                                <a href="https://drive.google.com/file/d/1Ne5JW4S7x6yqHDFfu9jKMa1xDoObDCQy/view?usp=sharing" target="_blank" rel="noopener">Design document</a>
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+                <div class="project-details">
                     <h4>Overview</h4>
                     <p>Harmony is an immersive and mesmerizing VR experience in which the user explores an underwater
                         landscape, and comes across a magical wand that lets them compose music. The wand allows players
@@ -70,7 +104,38 @@
                         After production, I also shot and edited the
                         documentary including interviews with the developers(my team) and players. </p>
                 </div>
-                <div class="additional-images">
+                <section class="project-story" aria-labelledby="project-story-title">
+                    <h3 id="project-story-title">The Story Behind Harmony</h3>
+                    <div class="project-story-grid">
+                        <article class="project-story-item">
+                            <img src="../img/harmony_02.png" alt="Schools of glowing fish in the Harmony underwater world">
+                            <h4>Concept</h4>
+                            <p>Harmony started as a course project for IAT445 (Immersive Environments) at SFU, where students formed teams to build a VR experience over the semester. Our team of five ended up building the whole project around music: early on we realized I had a background in composition and audio engineering, and the concept grew from there. We also wanted to learn boids, the flocking algorithm behind realistic fish and bird movement, as a team, and an underwater world full of schools of fish felt like the obvious (and honestly, unanimous) fit.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/harmony_13.png" alt="Harmony player wand illuminating an underwater castle scene">
+                            <h4>How It Works</h4>
+                            <p>The mechanic ties the two ideas together directly: point the wand at a school of fish to take control of it, and while you're in control, that school's instrument layer joins the music. Control fades out automatically after a set time, at which point the layer drops back out too. Take control of more schools at once and the composition builds in real time; the "song" playing at any given moment is really just a reflection of which fish you're currently commanding.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/harmony_17.png" alt="Colorful fish gathering in the Harmony underwater environment">
+                            <h4>The Audio Solution</h4>
+                            <p>Every part was composed as a single instrument, and every instrument was always playing under the hood, just muted by default. Taking control of a school didn't trigger a new sound to start; it unmuted one that was already playing in perfect time. That meant every layer was already locked to the same tempo and bar position no matter which combination of schools a player had active, so any random stack of instruments still sounded intentional instead of chaotic.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/harmony_11.png" alt="Bright capture effect surrounded by glowing fish in Harmony">
+                            <h4>The Challenge</h4>
+                            <p>Players weren't given any instructions on how the "conducting" worked; they had to figure it out entirely through experimentation. Early on, that discovery process was too subtle: the mix change alone didn't clearly signal that anything had happened, so players couldn't connect their action to the result. We added a short "bloop" sound and a matching visual effect the instant a school was captured, giving players an immediate, unmistakable link between pointing the wand and hearing the music change. Once that feedback was in place, people could work out the whole system on their own.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/harmony_16.png" alt="Player experiencing Harmony in a public VR showcase">
+                            <h4>Reception</h4>
+                            <p>The project was shown at our course showcase, where a steady stream of passersby stopped to play it. I interviewed people on the spot, which became part of the "Making of" documentary, and the response was consistently strong, with people specifically calling out the music as what stood out most. For the team, it was a real source of pride, each of us having leaned into a different skill, and even more so a sense of gratitude for the chance to combine those skills into something that came together as genuinely beautiful and was enjoyed by so many of the people who experienced it.</p>
+                        </article>
+                    </div>
+                </section>
+                <div class="additional-images project-media">
+                    <h3 class="project-media-title">Watch Harmony in motion</h3>
                     <div class="image">
                         <h3>Trailer</h3>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/DgY0BU8yxdk" frameborder="0"
@@ -90,14 +155,10 @@
                             allowfullscreen></iframe>
                         <p>A playthrough where you can experience the entire game played by one of the developers.
                             Enjoy!</p>
-                        <a href="https://drive.google.com/file/d/1Ne5JW4S7x6yqHDFfu9jKMa1xDoObDCQy/view?usp=sharing"
-                            target="_blank">
-                            <button>View Design Document</button>
-                        </a>
                     </div>
                 </div>
         </div>
-    </div>
+    </main>
     </section>
 
 
