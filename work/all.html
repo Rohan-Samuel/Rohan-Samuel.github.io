@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,34 +16,9 @@
 </head>
 
 <body>
-        <nav class="nav">
-            
-            <div class="name">
-                <h1><a href="../index.html">Rohan Samuel</a></h1>
-            </div>
-            <ul class="nav-main-menu">
-                <li class="dropdown">
-                    <a href="all.html#project-gallery" class="nav-link"><span>Work</span><i
-                            class="fa fa-chevron-down"></i></a>
-                    <ul class="dropdown-content">
-                        <li><a href="../work/games.html">Games</a></li>
-                        <li><a href="../work/film.html">Film</a></li>
-                        <li><a href="../work/3d.html">3D</a></li>
-                    </ul>
-                </li>
-                <li><a class="nav-link" href="../contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    {% include nav.html %}
 
-    <header>
-        <div class="hero">
-            <img src="../img/Landing1.png" alt="Rohan Samuel portfolio hero image">
-            <div class="hero-text">
-                <h1>Check out some of my work!</h1>
-
-            </div>
-        </div>
-    </header>
+    {% include hero.html title="Check out some of my work!" %}
 
     <div class="container" id="project-gallery">
         <!-- Your content goes here -->
@@ -136,23 +113,7 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer">
-            <h3> Please feel free to reach out!</h3>
-            <h4>About Rohan Samuel</h4>
-            <p>With a deep interest in VR and XR, I believe technology and art should work in harmony with humans. I am developing
-                an expertise in programming, visual design and audio production. My work aims to push the limits of our
-                imagination by combining these disciplines.</p>
-            <div class="social-icons">
-                <a href="mailto:rohan2309@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/r-samuel/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/rohanimate/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/Rohan-Samuel" target="_blank"><i class="fab fa-github"></i></a>
-                
-                <!-- Add more social media icons and links as needed -->
-            </div>
-        </div>
-    </footer>
+    {% include footer.html %}
 
     <!--  <script src="script.js"></script>  -->
 </body>
