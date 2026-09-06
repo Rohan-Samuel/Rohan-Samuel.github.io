@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohan Samuel</title>
+    <meta name="description" content="Portfolio of Rohan Samuel, a Unity developer and XR/interaction designer blending programming, visual design, and audio production.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <!--CSS Links-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -78,109 +80,14 @@
 
 
 
-        <div class="experiences">
-            <h2>Experience</h2>
-            <div class="experience">
-                <div class="year">2025</div>
-                <div class="details">
-                    <h4>Lab Instructor - Kwantlen Polytechnic University</h4>
-                    <p>Led hands-on XR development labs using Unity and XR Interaction Toolkit.</p>
-                </div>
-            </div>
-            <div class="experience">
-                <div class="year">2023-2024</div>
-                <div class="details">
-                    <h4>Teaching Assistant - Simon Fraser University</h4>
-                    <p>Guided students through labs, instructed in Maya, provided technical support, and graded
-                        projects.</p>
-                </div>
-            </div>
-            <div class="experience">
-                <div class="year">2023</div>
-                <div class="details">
-                    <h4>Bachelor of Science - Simon Fraser University</h4>
-                    <p>School of Interactive Arts and Technology (SIAT): interdisciplinary research-focused program
-                        combining art
-                        and technology.</p>
-                </div>
-            </div>
-            <div class="experience">
-                <div class="year">2022</div>
-                <div class="details">
-                    <h4>Technical Assistant (Web Developer)</h4>
-                    <p>SFU Our Learning Community website — development and maintenance support.</p>
+        {% include experience.html %}
 
-                </div>
-            </div>
-        </div>
-
-        <section class="skills">
-            <h2>Skills</h2>
-
-            <div class="skills__group skills__primary" aria-labelledby="skills-primary-title">
-                <h3 id="skills-primary-title" class="skills__title">Core Skills</h3>
-                <div class="skill-row">
-                    <!-- Add core skill items here -->
-
-                    <div class="skill">
-                        <img src="img/Unitylogo.png" alt="Unity logo">
-                        <h3>Unity</h3>
-                    </div>
-                    <div class="skill">
-                        <img src="img/unreal-1.svg" alt="Unreal Engine logo">
-                        <h3>Unreal Engine</h3>
-                    </div>
-                    <div class="skill">
-                        <img src="img/mayalogo.png" alt="Autodesk Maya logo">
-                        <h3>Maya</h3>
-                    </div>
-                    <div class="skill">
-                        <i class="skill-icon-placeholder fas fa-film" aria-hidden="true"></i>
-                        <h3>Interactive Media/Video Editing</h3>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-            <div class="skills__group skills__secondary" aria-labelledby="skills-secondary-title">
-                <h3 id="skills-secondary-title" class="skills__title">Secondary Skills</h3>
-                <div class="skill-row skill-row--small">
-                    <!-- Add secondary (smaller) skill items here -->
-                    <!-- Example:-->
-                    <div class="skill">
-                        <i class="skill-icon-placeholder fas fa-code" aria-hidden="true"></i>
-                        <h3>Programming: C#, C++, Python, JS, HTML, CSS</h3>
-                    </div>
-                    <div class="skill skill--small">
-                        <img src="img/gitlogo.png" alt="Git logo">
-                        <h3>Git</h3>
-                    </div>
-                    <div class="skill">
-                        <img src="img/substancelogo.png" alt="Substance Painter 3D Logo">
-                        <h3>Substance Painter 3D</h3>
-                    </div>
-
-                    <div class="skill">
-                        <i class="skill-icon-placeholder fas fa-object-group" aria-hidden="true"></i>
-                        <h3>UI/UX</h3>
-                    </div>
-                    <div class="skill">
-                        <i class="skill-icon-placeholder fas fa-music" aria-hidden="true"></i>
-                        <h3>Audio Engineering</h3>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </section>
+        {% include skills.html %}
 
         <div class="resume-section">
             <h2>Check out my resume</h2>
             <a href="https://drive.google.com/file/d/17m1Ni749GxyEqsYyKQha9XGMwrMsVERO/view?usp=sharing"
-                target="_blank">
+                target="_blank" rel="noopener noreferrer">
                 <div class="image-container">
                     <img src="img/res1.png" alt="Rohan Samuel resume preview">
                     <div class="overlay">

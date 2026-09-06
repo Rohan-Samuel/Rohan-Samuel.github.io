@@ -48,7 +48,10 @@ nav {
     padding-inline: 20vw;
     height: 70px;
     background-color: var(--secondary-color);
-    color: var(--text-color);
+}
+
+.name p {
+    margin: 0;
 }
 
 .name a{
@@ -85,11 +88,13 @@ margin-right: 5px;
 
 /* ============= Dropdown =============== */
 
-.dropdown:hover .fa-chevron-down{
+.dropdown:hover .fa-chevron-down,
+.dropdown:focus-within .fa-chevron-down{
     transform: rotate(180deg);
 }
 
-.dropdown:hover .nav-link {
+.dropdown:hover .nav-link,
+.dropdown:focus-within .nav-link {
     color: var(--primary-color);
 }
 
@@ -116,17 +121,14 @@ margin-right: 5px;
     border-radius: 0 0 3px 3px;
 }
 
-.dropdown-content li:hover  {
+.dropdown-content li:hover {
     background-color: var(--tertiary-color);
-}
-
-.dropdown-content li:hover  {
     color: var(--background-color);
-
 }
-.dropdown:hover .dropdown-content {
-    display: block;
 
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
 }
 
 
@@ -178,11 +180,6 @@ margin-right: 5px;
     font-weight: 800;
 }
 
-.hero-text p {
-    font-size: 18px;
-    margin: 0;
-}
-
 /* ============= Projects =============== */
 
 .project-gallery {
@@ -191,16 +188,13 @@ margin-right: 5px;
     margin-top: 20px;
 }
 
-.project-container { 
-    flex: 0 0 30%; 
-}
-
-.project {
-     position: relative; 
+.project-container {
+    flex: 0 0 30%;
 }
 
 /* Slight rounding for project gallery images; keep overlay clipped to same radius */
 .project {
+    position: relative;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -250,6 +244,17 @@ margin-right: 5px;
 
 
 
+
+/* ============= About Page =============== */
+
+.about-intro {
+    margin-top: 30px;
+}
+
+.about-intro p {
+    max-width: 70ch;
+    line-height: 1.7;
+}
 
 /* ============= Experience Section=============== */
 

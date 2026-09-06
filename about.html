@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Rohan Samuel</title>
+    <meta name="description" content="About Rohan Samuel, an XR developer and SFU SIAT graduate building VR installations, games, and interactive media.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
@@ -20,10 +22,38 @@
 
     {% include hero.html title="About" %}
 
+    <div class="container">
+        <div class="about-intro">
+            <h2>Hi, I'm Rohan</h2>
+            <p>With a deep interest in VR and XR, I believe technology and art should work in harmony with humans.
+                I'm developing an expertise in programming, visual design, and audio production, and my work aims to
+                push the limits of our imagination by combining these disciplines.</p>
+            <p>I studied at Simon Fraser University's School of Interactive Arts and Technology (SIAT), an
+                interdisciplinary program that combines art and technology — which is where my interest in blending
+                code, visuals, and sound really took shape. Since graduating, I've stayed close to that world:
+                TA'ing and now lab-instructing XR development courses, while continuing to build my own VR
+                installations, games, and short films.</p>
+        </div>
+
+        {% include experience.html %}
+
+        {% include skills.html %}
+
+        <div class="resume-section">
+            <h2>Check out my resume</h2>
+            <a href="https://drive.google.com/file/d/17m1Ni749GxyEqsYyKQha9XGMwrMsVERO/view?usp=sharing"
+                target="_blank" rel="noopener noreferrer">
+                <div class="image-container">
+                    <img src="{{ '/img/res1.png' | relative_url }}" alt="Rohan Samuel resume preview">
+                    <div class="overlay">
+                        <h3>View</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
     {% include footer.html %}
-
-
-
-
-    <!--  <script src="script.js"></script>  -->
 </body>
+
+</html>
