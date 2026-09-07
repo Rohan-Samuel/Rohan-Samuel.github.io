@@ -29,7 +29,7 @@
             <section class="project project-feature">
                 <div class="project-content project-feature-content">
                     <div class="project-info">
-                        <img src="../img/kin1.png" alt="Kinesthesia interactive scene with a participant">
+                        <img src="../img/kin1.jpg" alt="Kinesthesia interactive scene with a participant">
                         <div class="text-overlay">
                             <h3>Embodied Interaction</h3>
                         </div>
@@ -75,19 +75,8 @@
                         </div>
                     </dl>
                 </section>
-                <div class="project-details">
-                    <h4>Overview</h4>
-                    <p>Kinesthesia is a musical experience made with Unity and computer vision that allows you to
-                        control and influence sound by places your body parts in floating squares. The body is reflected
-                        as a digital mirror on screen and the sound can be controlled by moving further into the
-                        squares.
-                    </p>
-                    <h4>Contributions</h4>
-                    <p>I composed and produced the different layers of music for this project. I also worked on
-                        implementing the system into Unity and making sure the aesthetics betweeen the music and the
-                        environment matched. </p>
-                </div>
                 <div class="additional-images project-media">
+                    <h3 class="project-media-title">Watch Kinesthesia in motion</h3>
                     <div class="image">
                         <h3>Demonstration</h3>
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/8etkPXv511s" frameborder="0"
@@ -103,6 +92,36 @@
                     </div>
 
                 </div>
+                <section class="project-story" aria-labelledby="kinesthesia-story-title">
+                    <h3 id="kinesthesia-story-title">The Story Behind Kinesthesia</h3>
+                    <div class="project-story-grid project-story-grid--photo">
+                        <article class="project-story-item">
+                            <img src="../img/kin_world.jpg" alt="The Kinesthesia world with idle squares floating over a purple particle-lit landscape">
+                            <h4>Concept</h4>
+                            <p>The brief was open to interpretation, with one requirement: build an interactive system that a person operates with their body. Our team of three took that toward music, paired with particle visuals, and spent about a month on it.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/kin2.jpg" alt="Player standing with arms out to the sides while the hand and foot squares light up on screen">
+                            <h4>How It Works</h4>
+                            <p>A webcam tracks the player, whose body is reflected back as a digital mirror on screen. Six squares float in that scene: one at floor level for each foot, one at mid-height for each hand, and one higher up for each raised hand. There is no square dedicated to the head, though the head can trigger the higher ones. Each square plays a different instrument, and moving the limb around inside a square changes the effects applied to it — reverb, chorus and delay.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/kin3.jpg" alt="Player raising one arm overhead, lighting the upper square on screen">
+                            <h4>The Audio Approach</h4>
+                            <p>The setup is similar to <a href="harmony.html">Harmony</a>, but built around a mostly constant four-bar loop rather than an arrangement the player assembles. The loop stays put, so what a player shapes is the texture on top of it. Position inside a square is read in Unity and drives a slider that adds more or less of a specified effect, which is what puts the effects under the player's control rather than on a preset.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/kin_square_detail.jpg" alt="Close view of two lit squares with glowing particles drifting inside them">
+                            <h4>The Challenge</h4>
+                            <p>The hard part was making that in-square effect change both controllable and noticeable at once. It kept landing on one side or the other: either too sensitive to steer, or so subtle it became an afterthought. Finding the balance came down to picking the right effects — ones with enough audible character to register — and a lot of trial and error on the tuning.</p>
+                        </article>
+                        <article class="project-story-item">
+                            <img src="../img/kin1.jpg" alt="Player standing with both feet in the lit floor squares during the showcase performance">
+                            <h4>Reception</h4>
+                            <p>I performed it in front of my class at our showcase. Sharing music I had made through such a different form of presentation felt great, and the audience — my classmates — seemed genuinely impressed by the concept. Several of them told me afterwards that ours was one of the more memorable projects.</p>
+                        </article>
+                    </div>
+                </section>
             </section>
         </div>
         <div class="more-work-btn-container">

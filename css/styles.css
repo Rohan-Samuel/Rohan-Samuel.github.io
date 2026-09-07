@@ -1106,6 +1106,12 @@ button:hover {
     }
 }
 
+/* Taller crop for story galleries built from split-screen capture frames,
+   where a 16/7 band would cut off the performer's head and feet */
+.project-story-grid--photo .project-story-item img {
+    aspect-ratio: 3 / 2;
+}
+
 /* Pull quote used in project-story items (e.g. Reception) */
 .project-story-quote {
     margin: 16px 0 0;
