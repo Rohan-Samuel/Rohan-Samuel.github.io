@@ -1347,6 +1347,7 @@ button:hover {
     align-items: center;
     text-align: right;
     margin-top: 2rem; /* keep spacing consistent */
+    margin-bottom: 2rem;
 }
 
 /* ensure button itself does not introduce extra offset */
