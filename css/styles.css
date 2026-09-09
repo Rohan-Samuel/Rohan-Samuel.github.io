@@ -837,7 +837,7 @@ h3 {
 
 .image-container img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     transition: opacity 0.3s ease;
     justify-content: center;
