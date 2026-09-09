@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invasive | Rohan Samuel</title>
+    <title>Invasive — Unity stealth game, lead programmer | Rohan Samuel</title>
     <meta name="description" content="Invasive, a short Unity horror game where players explore an abandoned lab overrun by plant monsters.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css">
@@ -41,7 +41,6 @@
 
                         <p>A short horror game where you explore an abandoned laboratory crawling with... plant monsters?
                         </p>
-                        <!-- Add more information about the project as needed -->
                     </div>
 
                 </div>
@@ -78,6 +77,21 @@
                             </dd>
                         </div>
                     </dl>
+                </section>
+                <section class="project-contributions" aria-label="What I built on Invasive">
+                    <h3>What I built</h3>
+                    <ul>
+                        <li>Lead programmer — all C# gameplay code: character movement, animation state, the stealth
+                            system, and UI interaction.</li>
+                        <li>Built the oxygen mechanic that drives the whole game loop: oxygen drains everywhere except
+                            near a supply, and the only supplies are checkpoint tanks and the enemies themselves, so
+                            survival means approaching what can kill you.</li>
+                        <li>Implemented enemy detection on vision cones and sound, with chase behaviour and per-enemy
+                            contact effects (instant death or accelerated drain), plus sound as a tool players use to
+                            distract enemies through puzzles.</li>
+                        <li>Authored all model textures in Substance Painter, and integrated the team's audio and
+                            animation assets into a working build.</li>
+                    </ul>
                 </section>
                 <div class="additional-images project-media">
                     <h3 class="project-media-title">Watch Invasive in motion</h3>
@@ -147,7 +161,6 @@
     </main>
 
 
-    <!-- Add more sections for additional projects -->
 
     {% include footer.html %}
 </body>

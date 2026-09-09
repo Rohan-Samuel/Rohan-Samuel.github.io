@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harmony VR | Rohan Samuel</title>
+    <title>Harmony VR — Unity & audio systems | Rohan Samuel</title>
     <meta name="description" content="Harmony VR, an immersive underwater VR installation where players compose music by taking control of schools of fish.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css">
@@ -78,6 +78,19 @@
                             </dd>
                         </div>
                     </dl>
+                </section>
+                <section class="project-contributions" aria-label="What I built on Harmony">
+                    <h3>What I built</h3>
+                    <ul>
+                        <li>Composed and produced every instrument layer, then built the Unity audio system that plays
+                            them: all stems run continuously and muted, so any combination a player triggers stays
+                            locked to the same tempo and bar position.</li>
+                        <li>Programmed the wand interaction in C# — raycast targeting of fish schools, timed control
+                            windows, and the mute/unmute state that ties each school to its instrument.</li>
+                        <li>Added the capture feedback pass — a &ldquo;bloop&rdquo; cue and matching visual effect — after
+                            playtests showed the mix change alone was too subtle to read as cause and effect.</li>
+                        <li>Built most of the UI, and shot and edited the &ldquo;Making of&rdquo; documentary.</li>
+                    </ul>
                 </section>
                 <div class="additional-images project-media">
                     <h3 class="project-media-title">Watch Harmony in motion</h3>
@@ -154,7 +167,6 @@
     </main>
 
 
-    <!-- Add more sections for additional projects -->
 
     {% include footer.html %}
 </body>

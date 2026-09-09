@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan Samuel</title>
+    <title>Rohan Samuel — Unity & XR Developer</title>
     <meta name="description" content="Portfolio of Rohan Samuel, a Unity developer and XR/interaction designer blending programming, visual design, and audio production.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <!--CSS Links-->
@@ -22,13 +22,13 @@
     {% include nav.html %}
 
 
-    {% include hero.html title="XR Developer" id="hero-title" live=true %}
+    {% include hero-home.html %}
 
     <div class="container">
         <!-- Your content goes here 
         <h2>Welcome to My Portfolio</h2>
         <p>This is a simple template for a portfolio website.</p>-->
-        <h2>My latest work</h2>
+        <h2>Selected work</h2>
         <div class="project-gallery">
             <div class="project-container">
                 <div class="project">
@@ -40,7 +40,9 @@
                     </a>
                 </div>
                 <div class="project-description">
-                    <p>Virtual Reality Installation</p>
+                    <p class="project-card__kicker">VR Installation &middot; Meta Quest 2 <span class="project-card__badge">Playable</span></p>
+                    <p class="project-card__role">My role: Unity programmer, composer &amp; audio engineer, UI</p>
+                    <p class="project-card__tech">Unity &middot; C# &middot; FL Studio</p>
                 </div>
             </div>
             <div class="project-container">
@@ -53,7 +55,9 @@
                     </a>
                 </div>
                 <div class="project-description">
-                    <p>Body Interface (CV)</p>
+                    <p class="project-card__kicker">Body Interface &middot; Computer Vision</p>
+                    <p class="project-card__role">My role: Unity programmer, composer &amp; audio engineer</p>
+                    <p class="project-card__tech">Unity &middot; C# &middot; OpenCV</p>
                 </div>
             </div>
             <div class="project-container">
@@ -67,13 +71,15 @@
                     </a>
                 </div>
                 <div class="project-description">
-                    <p>Game Design (3D)</p>
+                    <p class="project-card__kicker">Stealth Horror Game &middot; PC</p>
+                    <p class="project-card__role">My role: Lead programmer, texture artist</p>
+                    <p class="project-card__tech">Unity &middot; C# &middot; Substance Painter</p>
                 </div>
             </div>
 
         </div>
         <div class="more-work-btn-container">
-            <a href="work/all.html" class="more-work-btn">
+            <a href="work/all.html#project-gallery" class="more-work-btn">
                 See More Work
             </a>
         </div>
@@ -85,7 +91,9 @@
         {% include skills.html %}
 
         <div class="resume-section">
-            <h2>Check out my resume</h2>
+            <h2>Résumé</h2>
+            <p class="resume-section__note">Open the full PDF — Unity, C#, XR, and audio experience, plus education and
+                teaching roles.</p>
             <a href="https://drive.google.com/file/d/17m1Ni749GxyEqsYyKQha9XGMwrMsVERO/view?usp=sharing"
                 target="_blank" rel="noopener noreferrer">
                 <div class="image-container">
@@ -101,7 +109,6 @@
     </div>
     {% include footer.html %}
 
-    <script src="js/hero-titles.js" defer></script>
 </body>
 
 </html>

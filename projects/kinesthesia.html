@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinesthesia | Rohan Samuel</title>
+    <title>Kinesthesia — Unity + computer vision instrument | Rohan Samuel</title>
     <meta name="description" content="Kinesthesia, a body-interface project using computer vision to turn movement into interaction.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css">
@@ -39,7 +39,6 @@
 
                         <p>An embodied musical experience where you can control the instruments with your body parts and
                             influence the sound with smaller movements. Run with a webcam! </p>
-                        <!-- Add more information about the project as needed -->
                     </div>
 
                 </div>
@@ -74,6 +73,19 @@
                             </dd>
                         </div>
                     </dl>
+                </section>
+                <section class="project-contributions" aria-label="What I built on Kinesthesia">
+                    <h3>What I built</h3>
+                    <ul>
+                        <li>Composed and produced the four-bar loop and each instrument layer the six squares
+                            trigger.</li>
+                        <li>Implemented the mapping in Unity: webcam body tracking resolves which limb is inside which
+                            square, and each square drives its own instrument.</li>
+                        <li>Wrote the effect control — a limb's position inside a square feeds a slider that scales
+                            reverb, chorus and delay, so players shape the texture rather than the arrangement.</li>
+                        <li>Tuned the sensitivity curve and picked effects with enough audible character that the
+                            change reads as deliberate control instead of noise.</li>
+                    </ul>
                 </section>
                 <div class="additional-images project-media">
                     <h3 class="project-media-title">Watch Kinesthesia in motion</h3>
@@ -140,7 +152,6 @@
     </main>
 
 
-    <!-- Add more sections for additional projects -->
 
     {% include footer.html %}
 </body>
