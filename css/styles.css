@@ -268,7 +268,7 @@ margin-right: 5px;
 
 .resume-section__note {
     max-width: 60ch;
-    margin: -6px 0 18px;
+    margin: -6px auto 18px;
     color: rgba(37, 42, 52, 0.75);
     line-height: 1.6;
 }
