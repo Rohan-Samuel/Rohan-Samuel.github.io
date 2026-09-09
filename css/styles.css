@@ -650,15 +650,6 @@ margin-right: 5px;
     line-height: 1.7;
 }
 
-.about-intro__placeholder,
-.about-beyond__placeholder {
-    padding: 10px 14px;
-    border: 1px dashed rgba(29, 32, 36, 0.35);
-    border-radius: 6px;
-    color: rgba(29, 32, 36, 0.65);
-    font-style: italic;
-}
-
 /* ---- About pillars ("what I bring") ---- */
 
 .about-pillars {
@@ -739,10 +730,6 @@ margin-right: 5px;
     line-height: 1.55;
 }
 
-.about-beyond__placeholder {
-    display: block;
-    margin-top: 20px;
-}
 
 /* ============= Experience Section=============== */
 
