@@ -177,6 +177,7 @@ margin-right: 5px;
     position: absolute;
     top: 40%;
     left: 50%;
+    width: 90%;
     transform: translate(-50%, -50%);
     color: var(--primary-color);
 }
@@ -186,6 +187,18 @@ margin-right: 5px;
     margin-bottom: 10px;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
+}
+
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-text h1 {
+        font-size: 22px;
+    }
 }
 
 .about-availability {
