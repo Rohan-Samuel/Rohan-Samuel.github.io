@@ -972,6 +972,17 @@ button:hover {
     .project-story-item:last-child {
         grid-column: auto;
     }
+    nav {
+        padding-inline: 16px;
+    }
+    .name a {
+        font-size: 1.4rem;
+    }
+    .nav-link {
+        font-size: 1rem;
+        padding: 26px 4px;
+        margin-inline: 6px;
+    }
     }
 
 
