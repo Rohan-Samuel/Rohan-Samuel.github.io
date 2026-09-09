@@ -567,6 +567,80 @@ margin-right: 5px;
 
 /* ============= About Page =============== */
 
+.hero-about {
+    background-color: var(--secondary-color);
+    padding: 56px 0;
+}
+
+.hero-about__inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: min(92%, 1200px);
+    margin-inline: auto;
+}
+
+.hero-about__avatar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, var(--tertiary-color), var(--primary-color));
+    color: var(--secondary-color);
+    font-family: "Raleway", sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+}
+
+.hero-about__eyebrow {
+    margin: 0 0 8px;
+    color: var(--tertiary-color);
+    font-family: "Raleway", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hero-about__title {
+    margin: 0 0 14px;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.hero-about__lede {
+    max-width: 60ch;
+    margin: 0 0 24px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: clamp(1rem, 1.4vw, 1.1rem);
+    line-height: 1.6;
+}
+
+.hero-about__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+@media (max-width: 640px) {
+    .hero-about__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .hero-about__avatar {
+        width: 96px;
+        height: 96px;
+        font-size: 1.9rem;
+    }
+}
+
 .about-intro {
     margin-top: 30px;
 }
@@ -574,6 +648,100 @@ margin-right: 5px;
 .about-intro p {
     max-width: 70ch;
     line-height: 1.7;
+}
+
+.about-intro__placeholder,
+.about-beyond__placeholder {
+    padding: 10px 14px;
+    border: 1px dashed rgba(29, 32, 36, 0.35);
+    border-radius: 6px;
+    color: rgba(29, 32, 36, 0.65);
+    font-style: italic;
+}
+
+/* ---- About pillars ("what I bring") ---- */
+
+.about-pillars {
+    margin-top: 54px;
+}
+
+.about-pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.about-pillar {
+    padding: 22px 24px;
+    background: linear-gradient(160deg, rgba(255, 46, 99, 0.08), rgba(98, 235, 225, 0.08));
+    border-radius: 8px;
+}
+
+.about-pillar__icon {
+    color: var(--tertiary-color);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.about-pillar h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+
+.about-pillar p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.94rem;
+}
+
+/* ---- About: beyond the code ---- */
+
+.about-beyond {
+    margin-top: 54px;
+}
+
+.about-beyond__intro {
+    max-width: 70ch;
+    margin: 10px 0 0;
+    line-height: 1.6;
+}
+
+.about-beyond__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.about-beyond__item {
+    padding: 18px 20px;
+    background: rgba(37, 42, 52, 0.04);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.about-beyond__item i {
+    color: var(--tertiary-color);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.about-beyond__item h4 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.about-beyond__item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.about-beyond__placeholder {
+    display: block;
+    margin-top: 20px;
 }
 
 /* ============= Experience Section=============== */

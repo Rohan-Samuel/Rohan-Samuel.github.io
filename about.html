@@ -20,13 +20,11 @@
 <body>
     {% include nav.html %}
 
-    {% include hero.html title="About" %}
+    {% include hero-about.html %}
 
     <div class="container">
         <div class="about-intro">
-            <h2>Hi, I'm Rohan</h2>
-            <p class="about-availability">Unity &amp; XR developer in Vancouver &mdash; open to gameplay, XR and
-                technical audio roles.</p>
+            <p class="about-availability">Open to gameplay, XR, and technical audio roles.</p>
             <p>I build interactive systems where the code and the sound are the same idea. On Harmony I composed every
                 instrument layer and then wrote the Unity system that plays them; on Kinesthesia I did the same thing
                 with a webcam and six floating squares; on Invasive I was lead programmer on a stealth game whose whole
@@ -37,7 +35,13 @@
                 code, visuals, and sound really took shape. Since graduating, I've stayed close to that world:
                 TA'ing and now lab-instructing XR development courses, while continuing to build my own VR
                 installations, games, and short films.</p>
+            <p class="about-intro__placeholder">[Placeholder &mdash; this is a good spot for a more personal
+                paragraph: what got you into games/XR in the first place, or what you're working toward next.]</p>
         </div>
+
+        {% include about-pillars.html %}
+
+        {% include about-beyond.html %}
 
         {% include experience.html %}
 
