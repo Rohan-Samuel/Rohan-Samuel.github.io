@@ -820,7 +820,9 @@ footer h3 {
     border-radius: 4px;
 }
 
-.project-story-item:last-child {
+/* Only center the last item when it would otherwise sit alone in its row
+   (an odd total in a 2-column grid). An even total already pairs up cleanly. */
+.project-story-item:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     width: min(100%, 540px);
     justify-self: center;
