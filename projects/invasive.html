@@ -85,13 +85,15 @@
                     <h3>What I built</h3>
                     <ul>
                         <li>Lead programmer — all C# gameplay code: character movement, animation state, the stealth
-                            system, and UI interaction.</li>
+                            system, and UI wiring.</li>
                         <li>Built the oxygen mechanic that drives the whole game loop: oxygen drains everywhere except
                             near a supply, and the only supplies are checkpoint tanks and the enemies themselves, so
                             survival means approaching what can kill you.</li>
-                        <li>Implemented enemy detection on vision cones and sound, with chase behaviour and per-enemy
-                            contact effects (instant death or accelerated drain), plus sound as a tool players use to
-                            distract enemies through puzzles.</li>
+                        <li>Programmed the enemy AI, giving each enemy type its own detection and behaviour — vision
+                            cones and sound triggering per-enemy chase logic, with contact effects that differ by enemy
+                            (instant death or accelerated drain).</li>
+                        <li>Built the throwable-beaker system — a charge-up throw mechanic and its UI — that lets
+                            players distract enemies with noise, required to solve several of the puzzles.</li>
                         <li>Authored all model textures in Substance Painter, and integrated the team's audio and
                             animation assets into a working build.</li>
                     </ul>
