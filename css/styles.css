@@ -616,18 +616,10 @@ margin-right: 5px;
 
 .hero-about__lede {
     max-width: 60ch;
-    margin: 0 0 12px;
+    margin: 0 0 24px;
     color: rgba(255, 255, 255, 0.88);
     font-size: clamp(1rem, 1.4vw, 1.1rem);
     line-height: 1.6;
-}
-
-.hero-about__meta {
-    max-width: 60ch;
-    margin: 0 0 24px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.92rem;
-    line-height: 1.5;
 }
 
 .hero-about__actions {
