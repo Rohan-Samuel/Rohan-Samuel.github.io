@@ -598,10 +598,68 @@ h3 {
 
 .details h4 {
     margin-top: 0;
+    font-size: 1.15rem;
 }
 
 .details p {
     margin-top: 5px;
+}
+
+.experience-org {
+    margin-top: 2px !important;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--tertiary-color);
+    font-size: 0.92rem;
+}
+
+.details ul {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.details ul li {
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.55;
+}
+
+.details ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.experience-tags span {
+    display: inline-block;
+    padding: 2px 10px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.experiences__subheading {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(29, 32, 36, 0.15);
 }
 
 /* Experience: horizontal layout with a vertical divider between year and details */
@@ -614,7 +672,7 @@ h3 {
 }
 
 .experiences .year{
-    flex: 0 0 110px; /* fixed column for duration */
+    flex: 0 0 140px; /* fixed column for duration */
     font-weight: 700;
     color: var(--text-color);
     text-align: right;
@@ -1213,9 +1271,6 @@ button:hover {
     }
     .skill img {
       width: 60%;
-    }
-    .experience p {
-        display: none;
     }
     .project-story-grid {
         grid-template-columns: 1fr;
