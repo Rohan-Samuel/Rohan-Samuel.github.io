@@ -490,19 +490,16 @@ margin-right: 5px;
 /* ============= Projects =============== */
 
 .project-gallery {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: flex-start;
+    gap: 30px 3%;
     margin-top: 20px;
 }
 
 /* breathing room when a new section heading follows a gallery row */
 .project-gallery + h2 {
     margin-top: 54px;
-}
-
-.project-container {
-    flex: 0 0 30%;
 }
 
 /* Slight rounding for project gallery images; keep overlay clipped to same radius */
@@ -1202,7 +1199,7 @@ button:hover {
         /* font-size: 25px; */
     }
     .project-gallery {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
     .navbar {
         position: relative;
