@@ -656,6 +656,26 @@ h3 {
     font-weight: 600;
 }
 
+.experience--minor {
+    padding: 0.35rem 0;
+    opacity: 0.8;
+}
+
+.experience--minor .year {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.experience--minor .details h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.experience--minor .experience-org {
+    font-size: 0.82rem;
+    margin-bottom: 0;
+}
+
 .experiences__subheading {
     margin-top: 30px;
     padding-top: 22px;
