@@ -20,13 +20,25 @@
         .gallery-3d {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            grid-auto-rows: 170px;
+            grid-auto-flow: dense;
             gap: 18px;
             margin-top: 20px;
         }
 
+        .gallery-3d-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-3d-card.is-featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
         .gallery-3d-item {
             position: relative;
-            aspect-ratio: 1 / 1;
+            flex: 1;
             border-radius: 5px;
             overflow: hidden;
             cursor: pointer;
@@ -40,7 +52,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.15s ease;
         }
 
         .gallery-3d-item:hover img {
@@ -59,6 +71,24 @@
         .gallery-3d-item .overlay h3 {
             font-size: 1.3rem;
             padding: 0 10px;
+        }
+
+        .gallery-3d-meta {
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .gallery-3d-meta__kicker {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .gallery-3d-meta__tech {
+            margin: 2px 0 0;
+            font-size: 0.75rem;
+            opacity: 0.7;
         }
 
         /* ============= Lightbox ============= */
@@ -113,18 +143,58 @@
             text-align: center;
         }
 
+        .lightbox-3d__counter {
+            color: #ccc;
+            margin: -10px 0 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
         .lightbox-3d__main {
+            position: relative;
             width: 100%;
             aspect-ratio: 16 / 10;
             border-radius: 5px;
             overflow: hidden;
             background-color: #111;
+            touch-action: pan-y;
         }
 
         .lightbox-3d__main img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .lightbox-3d__nav {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 60px;
+            border: none;
+            background: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.2s ease;
+        }
+
+        .lightbox-3d__nav:hover {
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        .lightbox-3d__nav--prev {
+            left: 0;
+        }
+
+        .lightbox-3d__nav--next {
+            right: 0;
         }
 
         .lightbox-3d__strip {
@@ -160,6 +230,16 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .lightbox-3d__nav {
+                width: 44px;
+                font-size: 1.5rem;
+            }
+
+            .gallery-3d-card.is-featured {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
         }
     </style>
 
@@ -184,8 +264,11 @@
         <div class="lightbox-3d__content" id="lightbox-3d-content">
             <button type="button" class="lightbox-3d__close" id="lightbox-3d-close">&larr; Back</button>
             <h3 class="lightbox-3d__title" id="lightbox-3d-title"></h3>
+            <p class="lightbox-3d__counter" id="lightbox-3d-counter"></p>
             <div class="lightbox-3d__main">
+                <button type="button" class="lightbox-3d__nav lightbox-3d__nav--prev" id="lightbox-3d-prev" aria-label="Previous image">&#8249;</button>
                 <img id="lightbox-3d-main-img" src="" alt="">
+                <button type="button" class="lightbox-3d__nav lightbox-3d__nav--next" id="lightbox-3d-next" aria-label="Next image">&#8250;</button>
             </div>
             <div class="lightbox-3d__strip" id="lightbox-3d-strip"></div>
         </div>
@@ -197,6 +280,9 @@
         const projects3d = [
             {
                 title: "Sculpted Relic",
+                kicker: "Prop · Environment Storytelling",
+                tech: "ZBrush · Substance Painter",
+                featured: true,
                 images: [
                     "https://picsum.photos/seed/relic1/900/560",
                     "https://picsum.photos/seed/relic2/900/560",
@@ -206,6 +292,8 @@
             },
             {
                 title: "Modular Sci-Fi Kit",
+                kicker: "Hard Surface · Modular Set",
+                tech: "Blender · Substance Painter",
                 images: [
                     "https://picsum.photos/seed/scifi1/900/560",
                     "https://picsum.photos/seed/scifi2/900/560",
@@ -214,6 +302,8 @@
             },
             {
                 title: "Stylized Creature",
+                kicker: "Character · Stylized",
+                tech: "ZBrush · Maya · Substance Painter",
                 images: [
                     "https://picsum.photos/seed/creature1/900/560",
                     "https://picsum.photos/seed/creature2/900/560",
@@ -224,6 +314,8 @@
             },
             {
                 title: "Hard Surface Vehicle",
+                kicker: "Vehicle · Hard Surface",
+                tech: "Maya · Substance Painter",
                 images: [
                     "https://picsum.photos/seed/vehicle1/900/560",
                     "https://picsum.photos/seed/vehicle2/900/560",
@@ -232,6 +324,9 @@
             },
             {
                 title: "Environment Set Piece",
+                kicker: "Environment · Set Dressing",
+                tech: "Blender · Unity",
+                featured: true,
                 images: [
                     "https://picsum.photos/seed/env1/900/560",
                     "https://picsum.photos/seed/env2/900/560",
@@ -241,6 +336,8 @@
             },
             {
                 title: "Character Bust",
+                kicker: "Character · Portrait Study",
+                tech: "ZBrush · KeyShot",
                 images: [
                     "https://picsum.photos/seed/bust1/900/560",
                     "https://picsum.photos/seed/bust2/900/560",
@@ -249,6 +346,8 @@
             },
             {
                 title: "Weapon Set",
+                kicker: "Prop · Weapon Design",
+                tech: "Maya · Substance Painter",
                 images: [
                     "https://picsum.photos/seed/weapon1/900/560",
                     "https://picsum.photos/seed/weapon2/900/560",
@@ -258,6 +357,8 @@
             },
             {
                 title: "Prop Study",
+                kicker: "Prop · Texture Study",
+                tech: "Substance Painter · Marmoset",
                 images: [
                     "https://picsum.photos/seed/prop1/900/560",
                     "https://picsum.photos/seed/prop2/900/560",
@@ -266,6 +367,8 @@
             },
             {
                 title: "Architectural Render",
+                kicker: "Environment · Archviz",
+                tech: "Blender · Unreal Engine",
                 images: [
                     "https://picsum.photos/seed/arch1/900/560",
                     "https://picsum.photos/seed/arch2/900/560",
@@ -275,20 +378,32 @@
             },
         ];
 
+        const HOVER_PREVIEW_LIMIT = 3;
+        const HOVER_PREVIEW_INTERVAL_MS = 800;
+        const SWIPE_THRESHOLD_PX = 40;
+
         const galleryEl = document.getElementById("gallery-3d");
         const lightboxEl = document.getElementById("lightbox-3d");
         const lightboxContentEl = document.getElementById("lightbox-3d-content");
+        const lightboxMainEl = document.querySelector(".lightbox-3d__main");
         const lightboxCloseEl = document.getElementById("lightbox-3d-close");
         const lightboxTitleEl = document.getElementById("lightbox-3d-title");
+        const lightboxCounterEl = document.getElementById("lightbox-3d-counter");
         const lightboxMainImgEl = document.getElementById("lightbox-3d-main-img");
         const lightboxStripEl = document.getElementById("lightbox-3d-strip");
+        const lightboxPrevEl = document.getElementById("lightbox-3d-prev");
+        const lightboxNextEl = document.getElementById("lightbox-3d-next");
 
         let currentProject = null;
         let currentIndex = 0;
         let lastScrollTime = 0;
+        let touchStartX = null;
 
         function renderGallery() {
             projects3d.forEach((project, index) => {
+                const card = document.createElement("div");
+                card.className = "gallery-3d-card" + (project.featured ? " is-featured" : "");
+
                 const item = document.createElement("button");
                 item.type = "button";
                 item.className = "gallery-3d-item";
@@ -307,7 +422,44 @@
                 item.appendChild(overlay);
 
                 item.addEventListener("click", () => openLightbox(index));
-                galleryEl.appendChild(item);
+                attachHoverPreview(item, img, project);
+
+                card.appendChild(item);
+
+                const meta = document.createElement("div");
+                meta.className = "gallery-3d-meta";
+                const kicker = document.createElement("p");
+                kicker.className = "gallery-3d-meta__kicker";
+                kicker.textContent = project.kicker;
+                meta.appendChild(kicker);
+                const tech = document.createElement("p");
+                tech.className = "gallery-3d-meta__tech";
+                tech.textContent = project.tech;
+                meta.appendChild(tech);
+                card.appendChild(meta);
+
+                galleryEl.appendChild(card);
+            });
+        }
+
+        function attachHoverPreview(item, img, project) {
+            const previewImages = project.images.slice(0, HOVER_PREVIEW_LIMIT);
+            if (previewImages.length <= 1) return;
+
+            let previewIndex = 0;
+            let intervalId = null;
+
+            item.addEventListener("mouseenter", () => {
+                intervalId = setInterval(() => {
+                    previewIndex = (previewIndex + 1) % previewImages.length;
+                    img.src = previewImages[previewIndex];
+                }, HOVER_PREVIEW_INTERVAL_MS);
+            });
+
+            item.addEventListener("mouseleave", () => {
+                clearInterval(intervalId);
+                previewIndex = 0;
+                img.src = project.images[0];
             });
         }
 
@@ -330,6 +482,7 @@
             currentIndex = (index + total) % total;
             lightboxMainImgEl.src = currentProject.images[currentIndex];
             lightboxMainImgEl.alt = currentProject.title + " image " + (currentIndex + 1);
+            lightboxCounterEl.textContent = (currentIndex + 1) + " / " + total;
 
             const thumbs = lightboxStripEl.querySelectorAll("img");
             thumbs.forEach((thumb, i) => {
@@ -360,6 +513,8 @@
         renderGallery();
 
         lightboxCloseEl.addEventListener("click", closeLightbox);
+        lightboxPrevEl.addEventListener("click", () => showImage(currentIndex - 1));
+        lightboxNextEl.addEventListener("click", () => showImage(currentIndex + 1));
 
         lightboxEl.addEventListener("click", (event) => {
             if (event.target === lightboxEl) {
@@ -386,6 +541,23 @@
                 showImage(currentIndex - 1);
             }
         }, { passive: false });
+
+        lightboxMainEl.addEventListener("touchstart", (event) => {
+            touchStartX = event.touches[0].clientX;
+        }, { passive: true });
+
+        lightboxMainEl.addEventListener("touchend", (event) => {
+            if (touchStartX === null) return;
+            const deltaX = event.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) > SWIPE_THRESHOLD_PX) {
+                if (deltaX < 0) {
+                    showImage(currentIndex + 1);
+                } else {
+                    showImage(currentIndex - 1);
+                }
+            }
+            touchStartX = null;
+        });
     </script>
 </body>
 
