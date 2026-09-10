@@ -26,19 +26,13 @@
             margin-top: 20px;
         }
 
-        .gallery-3d-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-3d-card.is-featured {
+        .gallery-3d-item.is-featured {
             grid-column: span 2;
             grid-row: span 2;
         }
 
         .gallery-3d-item {
             position: relative;
-            flex: 1;
             border-radius: 5px;
             overflow: hidden;
             cursor: pointer;
@@ -60,7 +54,12 @@
         }
 
         .gallery-3d-item .overlay {
-            background-color: rgba(0, 0, 0, 0.45);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 75%);
+            align-items: flex-end;
+            justify-content: flex-start;
+            text-align: left;
+            padding: 14px;
+            box-sizing: border-box;
             opacity: 0;
         }
 
@@ -68,27 +67,28 @@
             opacity: 1;
         }
 
+        .gallery-3d-item .overlay-inner {
+            width: 100%;
+        }
+
         .gallery-3d-item .overlay h3 {
-            font-size: 1.3rem;
-            padding: 0 10px;
-        }
-
-        .gallery-3d-meta {
-            margin-top: 8px;
-            line-height: 1.3;
-        }
-
-        .gallery-3d-meta__kicker {
+            font-size: 1.1rem;
             margin: 0;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-color);
+            padding: 0;
+            text-align: left;
         }
 
-        .gallery-3d-meta__tech {
-            margin: 2px 0 0;
+        .gallery-3d-item .overlay .gallery-3d-meta__kicker {
+            margin: 4px 0 0;
             font-size: 0.75rem;
-            opacity: 0.7;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .gallery-3d-item .overlay .gallery-3d-meta__tech {
+            margin: 2px 0 0;
+            font-size: 0.7rem;
+            color: #ddd;
         }
 
         /* ============= Lightbox ============= */
@@ -236,7 +236,7 @@
                 font-size: 1.5rem;
             }
 
-            .gallery-3d-card.is-featured {
+            .gallery-3d-item.is-featured {
                 grid-column: span 1;
                 grid-row: span 1;
             }
@@ -401,12 +401,9 @@
 
         function renderGallery() {
             projects3d.forEach((project, index) => {
-                const card = document.createElement("div");
-                card.className = "gallery-3d-card" + (project.featured ? " is-featured" : "");
-
                 const item = document.createElement("button");
                 item.type = "button";
-                item.className = "gallery-3d-item";
+                item.className = "gallery-3d-item" + (project.featured ? " is-featured" : "");
                 item.setAttribute("aria-label", "View " + project.title);
 
                 const img = document.createElement("img");
@@ -416,29 +413,31 @@
 
                 const overlay = document.createElement("div");
                 overlay.className = "overlay";
+
+                const overlayInner = document.createElement("div");
+                overlayInner.className = "overlay-inner";
+
                 const h3 = document.createElement("h3");
                 h3.textContent = project.title;
-                overlay.appendChild(h3);
+                overlayInner.appendChild(h3);
+
+                const kicker = document.createElement("p");
+                kicker.className = "gallery-3d-meta__kicker";
+                kicker.textContent = project.kicker;
+                overlayInner.appendChild(kicker);
+
+                const tech = document.createElement("p");
+                tech.className = "gallery-3d-meta__tech";
+                tech.textContent = project.tech;
+                overlayInner.appendChild(tech);
+
+                overlay.appendChild(overlayInner);
                 item.appendChild(overlay);
 
                 item.addEventListener("click", () => openLightbox(index));
                 attachHoverPreview(item, img, project);
 
-                card.appendChild(item);
-
-                const meta = document.createElement("div");
-                meta.className = "gallery-3d-meta";
-                const kicker = document.createElement("p");
-                kicker.className = "gallery-3d-meta__kicker";
-                kicker.textContent = project.kicker;
-                meta.appendChild(kicker);
-                const tech = document.createElement("p");
-                tech.className = "gallery-3d-meta__tech";
-                tech.textContent = project.tech;
-                meta.appendChild(tech);
-                card.appendChild(meta);
-
-                galleryEl.appendChild(card);
+                galleryEl.appendChild(item);
             });
         }
 
