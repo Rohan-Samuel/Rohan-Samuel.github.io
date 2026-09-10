@@ -15,6 +15,154 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
 
+    <style>
+        /* ============= 3D Gallery ============= */
+        .gallery-3d {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .gallery-3d-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            background: none;
+        }
+
+        .gallery-3d-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-3d-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-3d-item .overlay {
+            background-color: rgba(0, 0, 0, 0.45);
+            opacity: 0;
+        }
+
+        .gallery-3d-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-3d-item .overlay h3 {
+            font-size: 1.3rem;
+            padding: 0 10px;
+        }
+
+        /* ============= Lightbox ============= */
+        .lightbox-3d {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(10, 10, 12, 0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease;
+        }
+
+        .lightbox-3d.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-3d__content {
+            position: relative;
+            width: min(900px, 90vw);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .lightbox-3d__close {
+            position: absolute;
+            top: -46px;
+            right: 0;
+            background: none;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 5px;
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lightbox-3d__close:hover {
+            background-color: #fff;
+            color: var(--secondary-color);
+        }
+
+        .lightbox-3d__title {
+            color: #fff;
+            margin: 0;
+            text-align: center;
+        }
+
+        .lightbox-3d__main {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .lightbox-3d__main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lightbox-3d__strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+        }
+
+        .lightbox-3d__strip img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.5;
+            border: 2px solid transparent;
+            transition: opacity 0.2s ease, border-color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .lightbox-3d__strip img:hover {
+            opacity: 0.85;
+        }
+
+        .lightbox-3d__strip img.is-active {
+            opacity: 1;
+            border-color: var(--tertiary-color);
+        }
+
+        @media (max-width: 600px) {
+            .lightbox-3d__strip img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -24,15 +172,221 @@
 
     <div class="container" id="project-gallery">
         <h2>Projects</h2>
+        <div class="gallery-3d" id="gallery-3d">
+            <!-- Populated by script below -->
+        </div>
         <div class="more-work-btn-container">
             <a href="../index.html" class="more-work-btn">Back to Home</a>
         </div>
+    </div>
 
+    <div class="lightbox-3d" id="lightbox-3d">
+        <div class="lightbox-3d__content" id="lightbox-3d-content">
+            <button type="button" class="lightbox-3d__close" id="lightbox-3d-close">&larr; Back</button>
+            <h3 class="lightbox-3d__title" id="lightbox-3d-title"></h3>
+            <div class="lightbox-3d__main">
+                <img id="lightbox-3d-main-img" src="" alt="">
+            </div>
+            <div class="lightbox-3d__strip" id="lightbox-3d-strip"></div>
+        </div>
     </div>
 
     {% include footer.html %}
 
-    <!--  <script src="script.js"></script>  -->
+    <script>
+        const projects3d = [
+            {
+                title: "Sculpted Relic",
+                images: [
+                    "https://picsum.photos/seed/relic1/900/560",
+                    "https://picsum.photos/seed/relic2/900/560",
+                    "https://picsum.photos/seed/relic3/900/560",
+                    "https://picsum.photos/seed/relic4/900/560",
+                ],
+            },
+            {
+                title: "Modular Sci-Fi Kit",
+                images: [
+                    "https://picsum.photos/seed/scifi1/900/560",
+                    "https://picsum.photos/seed/scifi2/900/560",
+                    "https://picsum.photos/seed/scifi3/900/560",
+                ],
+            },
+            {
+                title: "Stylized Creature",
+                images: [
+                    "https://picsum.photos/seed/creature1/900/560",
+                    "https://picsum.photos/seed/creature2/900/560",
+                    "https://picsum.photos/seed/creature3/900/560",
+                    "https://picsum.photos/seed/creature4/900/560",
+                    "https://picsum.photos/seed/creature5/900/560",
+                ],
+            },
+            {
+                title: "Hard Surface Vehicle",
+                images: [
+                    "https://picsum.photos/seed/vehicle1/900/560",
+                    "https://picsum.photos/seed/vehicle2/900/560",
+                    "https://picsum.photos/seed/vehicle3/900/560",
+                ],
+            },
+            {
+                title: "Environment Set Piece",
+                images: [
+                    "https://picsum.photos/seed/env1/900/560",
+                    "https://picsum.photos/seed/env2/900/560",
+                    "https://picsum.photos/seed/env3/900/560",
+                    "https://picsum.photos/seed/env4/900/560",
+                ],
+            },
+            {
+                title: "Character Bust",
+                images: [
+                    "https://picsum.photos/seed/bust1/900/560",
+                    "https://picsum.photos/seed/bust2/900/560",
+                    "https://picsum.photos/seed/bust3/900/560",
+                ],
+            },
+            {
+                title: "Weapon Set",
+                images: [
+                    "https://picsum.photos/seed/weapon1/900/560",
+                    "https://picsum.photos/seed/weapon2/900/560",
+                    "https://picsum.photos/seed/weapon3/900/560",
+                    "https://picsum.photos/seed/weapon4/900/560",
+                ],
+            },
+            {
+                title: "Prop Study",
+                images: [
+                    "https://picsum.photos/seed/prop1/900/560",
+                    "https://picsum.photos/seed/prop2/900/560",
+                    "https://picsum.photos/seed/prop3/900/560",
+                ],
+            },
+            {
+                title: "Architectural Render",
+                images: [
+                    "https://picsum.photos/seed/arch1/900/560",
+                    "https://picsum.photos/seed/arch2/900/560",
+                    "https://picsum.photos/seed/arch3/900/560",
+                    "https://picsum.photos/seed/arch4/900/560",
+                ],
+            },
+        ];
+
+        const galleryEl = document.getElementById("gallery-3d");
+        const lightboxEl = document.getElementById("lightbox-3d");
+        const lightboxContentEl = document.getElementById("lightbox-3d-content");
+        const lightboxCloseEl = document.getElementById("lightbox-3d-close");
+        const lightboxTitleEl = document.getElementById("lightbox-3d-title");
+        const lightboxMainImgEl = document.getElementById("lightbox-3d-main-img");
+        const lightboxStripEl = document.getElementById("lightbox-3d-strip");
+
+        let currentProject = null;
+        let currentIndex = 0;
+        let lastScrollTime = 0;
+
+        function renderGallery() {
+            projects3d.forEach((project, index) => {
+                const item = document.createElement("button");
+                item.type = "button";
+                item.className = "gallery-3d-item";
+                item.setAttribute("aria-label", "View " + project.title);
+
+                const img = document.createElement("img");
+                img.src = project.images[0];
+                img.alt = project.title + " preview";
+                item.appendChild(img);
+
+                const overlay = document.createElement("div");
+                overlay.className = "overlay";
+                const h3 = document.createElement("h3");
+                h3.textContent = project.title;
+                overlay.appendChild(h3);
+                item.appendChild(overlay);
+
+                item.addEventListener("click", () => openLightbox(index));
+                galleryEl.appendChild(item);
+            });
+        }
+
+        function renderStrip() {
+            lightboxStripEl.innerHTML = "";
+            currentProject.images.forEach((src, index) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                thumb.alt = currentProject.title + " image " + (index + 1);
+                if (index === currentIndex) {
+                    thumb.classList.add("is-active");
+                }
+                thumb.addEventListener("click", () => showImage(index));
+                lightboxStripEl.appendChild(thumb);
+            });
+        }
+
+        function showImage(index) {
+            const total = currentProject.images.length;
+            currentIndex = (index + total) % total;
+            lightboxMainImgEl.src = currentProject.images[currentIndex];
+            lightboxMainImgEl.alt = currentProject.title + " image " + (currentIndex + 1);
+
+            const thumbs = lightboxStripEl.querySelectorAll("img");
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle("is-active", i === currentIndex);
+            });
+            const activeThumb = thumbs[currentIndex];
+            if (activeThumb) {
+                activeThumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }
+        }
+
+        function openLightbox(projectIndex) {
+            currentProject = projects3d[projectIndex];
+            currentIndex = 0;
+            lightboxTitleEl.textContent = currentProject.title;
+            renderStrip();
+            showImage(0);
+            lightboxEl.classList.add("is-open");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightboxEl.classList.remove("is-open");
+            document.body.style.overflow = "";
+            currentProject = null;
+        }
+
+        renderGallery();
+
+        lightboxCloseEl.addEventListener("click", closeLightbox);
+
+        lightboxEl.addEventListener("click", (event) => {
+            if (event.target === lightboxEl) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (!lightboxEl.classList.contains("is-open")) return;
+            if (event.key === "Escape") closeLightbox();
+            if (event.key === "ArrowRight") showImage(currentIndex + 1);
+            if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+        });
+
+        lightboxContentEl.addEventListener("wheel", (event) => {
+            if (!currentProject) return;
+            event.preventDefault();
+            const now = Date.now();
+            if (now - lastScrollTime < 350) return;
+            lastScrollTime = now;
+            if (event.deltaY > 0) {
+                showImage(currentIndex + 1);
+            } else if (event.deltaY < 0) {
+                showImage(currentIndex - 1);
+            }
+        }, { passive: false });
+    </script>
 </body>
 
 </html>
