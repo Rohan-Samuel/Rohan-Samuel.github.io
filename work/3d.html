@@ -93,6 +93,64 @@
             color: #ddd;
         }
 
+        /* ============= Featured 3D Model ============= */
+        .featured-models {
+            margin-top: 20px;
+        }
+
+        .featured-models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            justify-items: center;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .featured-model-card {
+            width: 100%;
+            max-width: 640px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .featured-model-card model-viewer {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: #111;
+            --poster-color: #111;
+        }
+
+        .featured-model-card__body {
+            padding: 16px 20px 20px;
+        }
+
+        .featured-model-card__title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .featured-model-card__kicker {
+            margin: 6px 0 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .featured-model-card__tech {
+            margin: 2px 0 0;
+            font-size: 0.75rem;
+            color: #bbb;
+        }
+
+        .featured-model-card__hint {
+            margin: 12px 0 0;
+            font-size: 0.72rem;
+            color: #888;
+        }
+
         /* ============= Lightbox ============= */
         .lightbox-3d {
             position: fixed;
@@ -299,6 +357,13 @@
 
     {% include hero.html title="Check out my 3D assets" %}
 
+    <div class="container featured-models" id="featured-models" hidden>
+        <h2 id="featured-models-heading">Featured 3D Model</h2>
+        <div class="featured-models-grid" id="featured-models-grid">
+            <!-- Populated by script below -->
+        </div>
+    </div>
+
     <div class="container" id="project-gallery">
         <h2>Projects</h2>
         <div class="gallery-3d" id="gallery-3d">
@@ -437,6 +502,9 @@
         const HOVER_PREVIEW_INTERVAL_MS = 800;
         const SWIPE_THRESHOLD_PX = 40;
 
+        const featuredModelsSectionEl = document.getElementById("featured-models");
+        const featuredModelsHeadingEl = document.getElementById("featured-models-heading");
+        const featuredModelsGridEl = document.getElementById("featured-models-grid");
         const galleryEl = document.getElementById("gallery-3d");
         const lightboxEl = document.getElementById("lightbox-3d");
         const lightboxContentEl = document.getElementById("lightbox-3d-content");
@@ -498,6 +566,53 @@
 
                 galleryEl.appendChild(item);
             });
+        }
+
+        function renderFeaturedModels() {
+            const featuredModels = projects3d.filter((project) => project.model);
+            if (featuredModels.length === 0) return;
+
+            featuredModelsHeadingEl.textContent = featuredModels.length > 1 ? "Featured 3D Models" : "Featured 3D Model";
+
+            featuredModels.forEach((project) => {
+                const card = document.createElement("div");
+                card.className = "featured-model-card";
+
+                const viewer = document.createElement("model-viewer");
+                viewer.setAttribute("src", project.model);
+                viewer.setAttribute("camera-controls", "");
+                viewer.setAttribute("auto-rotate", "");
+                viewer.setAttribute("shadow-intensity", "1");
+                card.appendChild(viewer);
+
+                const body = document.createElement("div");
+                body.className = "featured-model-card__body";
+
+                const h3 = document.createElement("h3");
+                h3.className = "featured-model-card__title";
+                h3.textContent = project.title;
+                body.appendChild(h3);
+
+                const kicker = document.createElement("p");
+                kicker.className = "featured-model-card__kicker";
+                kicker.textContent = project.kicker;
+                body.appendChild(kicker);
+
+                const tech = document.createElement("p");
+                tech.className = "featured-model-card__tech";
+                tech.textContent = project.tech;
+                body.appendChild(tech);
+
+                const hint = document.createElement("p");
+                hint.className = "featured-model-card__hint";
+                hint.textContent = "Drag to orbit · Scroll to zoom";
+                body.appendChild(hint);
+
+                card.appendChild(body);
+                featuredModelsGridEl.appendChild(card);
+            });
+
+            featuredModelsSectionEl.hidden = false;
         }
 
         function attachHoverPreview(item, img, project) {
@@ -586,6 +701,7 @@
             currentProject = null;
         }
 
+        renderFeaturedModels();
         renderGallery();
 
         lightboxCloseEl.addEventListener("click", closeLightbox);
