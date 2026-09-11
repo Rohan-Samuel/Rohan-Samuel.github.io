@@ -1,0 +1,43 @@
+<!doctype html>
+<!--
+  Standalone preview — open this file directly in a browser to see the
+  shader visualiser render. hero-about.html itself is a Jekyll/Liquid
+  fragment (root-relative asset paths) and won't render if opened on its
+  own, so this mirrors its markup with plain relative paths.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero about preview</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="hero-about" data-hero-shader>
+        <div class="hero-about__inner">
+            <div class="hero-about__avatar" aria-hidden="true">RS</div>
+            <div class="hero-about__content">
+                <p class="hero-about__eyebrow">About</p>
+                <h1 class="hero-about__title">Hi, I'm Rohan.</h1>
+                <p class="hero-about__lede">Unity &amp; XR developer in Vancouver, blending programming, technical art,
+                    and audio production &mdash; most recently lab-instructing XR development at Kwantlen Polytechnic
+                    University.</p>
+                <div class="hero-about__actions">
+                    <a class="hero-btn hero-btn--primary" href="#">Get in touch</a>
+                    <a class="hero-btn"
+                        href="https://drive.google.com/file/d/1cjJ4IAe_77UbDBGS1QehJ5MF9i14lZ7J/view"
+                        target="_blank" rel="noopener noreferrer">Résumé</a>
+                    <a class="hero-btn" href="#">See the work</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="../js/hero-shader.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  Standalone preview — open this file directly in a browser to see the
+  shader visualiser render. hero-home.html itself is a Jekyll/Liquid
+  fragment (root-relative asset paths) and won't render if opened on its
+  own, so this mirrors its markup with plain relative paths.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero home preview</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="hero-home" data-hero-shader>
+        <img class="hero-home__bg" src="../img/Landing1.png" alt="" aria-hidden="true">
+        <div class="hero-home__inner">
+            <p class="hero-home__eyebrow">Rohan Samuel</p>
+            <h1 class="hero-home__title">Unity &amp; XR Developer</h1>
+            <p class="hero-home__lede">I build interactive systems where the code, the sound, and the visuals are the
+                same act — underwater VR instruments and webcam-tracked music. A programmer's logic, a composer's ear,
+                and a technical artist's eye.</p>
+
+            <div class="hero-home__actions">
+                <a class="hero-btn hero-btn--primary" href="https://teamharmony.itch.io/harmony" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa fa-gamepad" aria-hidden="true"></i> Play Harmony &mdash; free VR build
+                </a>
+                <a class="hero-btn" href="#">See the work</a>
+                <a class="hero-btn" href="https://drive.google.com/file/d/1cjJ4IAe_77UbDBGS1QehJ5MF9i14lZ7J/view"
+                    target="_blank" rel="noopener noreferrer">Résumé</a>
+            </div>
+
+            <ul class="hero-home__links">
+                <li><a href="mailto:rohan2309@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> rohan2309@gmail.com</a></li>
+                <li><a href="https://github.com/Rohan-Samuel" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/r-samuel/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </header>
+    <script src="../js/hero-shader.js" defer></script>
+</body>
+
+</html>
