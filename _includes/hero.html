@@ -1,8 +1,9 @@
 <header>
-    <div class="hero">
+    <div class="hero" data-hero-shader>
         <img src="{{ '/img/Landing1.png' | relative_url }}" alt="" aria-hidden="true">
         <div class="hero-text">
             <h1{% if include.id %} id="{{ include.id }}"{% endif %}{% if include.live %} aria-live="polite"{% endif %}>{{ include.title }}</h1>
         </div>
     </div>
 </header>
+<script src="{{ '/js/hero-shader.js' | relative_url }}" defer></script>

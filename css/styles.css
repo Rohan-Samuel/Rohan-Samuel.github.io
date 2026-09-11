@@ -162,6 +162,16 @@ margin-right: 5px;
 
 /* ============= Hero =============== */
 
+.hero-shader-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
 .hero {
     position: relative;
     text-align: center;
@@ -568,11 +578,15 @@ margin-right: 5px;
 /* ============= About Page =============== */
 
 .hero-about {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     background-color: var(--secondary-color);
     padding: 56px 0;
 }
 
 .hero-about__inner {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 40px;
