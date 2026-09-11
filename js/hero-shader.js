@@ -20,6 +20,7 @@ uniform float uScale;
 uniform float uIntensity;
 uniform int   uLineCount;
 uniform vec3  uTint;
+uniform vec3  uTint2;
 
 uniform vec2  uPointer;
 uniform float uHover;
@@ -47,16 +48,12 @@ void main() {
     float r = length(uv);
 
     float t = uTime * 0.05;
-    vec3 color = vec3(
-        channel(uv, r, t, 0.0),
-        channel(uv, r, t, 1.0),
-        channel(uv, r, t, 2.0)
-    );
+    vec3 color = channel(uv, r, t, 0.0) * uTint + channel(uv, r, t, 1.0) * uTint2;
 
     float dp = length(s - uPointer) / reach;
     float glow = uHover * exp(-dp * dp);
 
-    vec3 c = min(color * uIntensity * (1.0 + glow) * uTint, vec3(1.0));
+    vec3 c = min(color * uIntensity * (1.0 + glow), vec3(1.0));
     gl_FragColor = vec4(c, clamp(max(max(c.r, c.g), c.b), 0.0, 1.0));
 }
 `;
@@ -71,11 +68,12 @@ void main() {
         speed: 10,
         brightness: 101,
         thickness: 13,
-        chromatic: 15,
+        chromatic: 6,
         bandGap: 7,
         zoom: 300,
         hover: 31,
-        tint: "#ffffff",
+        tint: "#62EBE1",
+        tint2: "#FF2E63",
     };
 
     function parseColor(input) {
@@ -150,6 +148,7 @@ void main() {
             intensity: gl.getUniformLocation(program, "uIntensity"),
             lineCount: gl.getUniformLocation(program, "uLineCount"),
             tint: gl.getUniformLocation(program, "uTint"),
+            tint2: gl.getUniformLocation(program, "uTint2"),
             pointer: gl.getUniformLocation(program, "uPointer"),
             hover: gl.getUniformLocation(program, "uHover"),
             reach: gl.getUniformLocation(program, "uReach"),
@@ -193,6 +192,7 @@ void main() {
         let last = 0;
         let t = 0;
         const [r, g, b] = parseColor(opts.tint);
+        const [r2, g2, b2] = parseColor(opts.tint2);
 
         function frame(now) {
             raf = requestAnimationFrame(frame);
@@ -208,6 +208,7 @@ void main() {
             gl.uniform1f(u.intensity, opts.brightness / 100);
             gl.uniform1i(u.lineCount, LINE_COUNT);
             gl.uniform3f(u.tint, r, g, b);
+            gl.uniform3f(u.tint2, r2, g2, b2);
 
             const k = 1 - Math.exp(-dt * FOLLOW_RATE);
             ptr.x += (ptr.tx - ptr.x) * k;
