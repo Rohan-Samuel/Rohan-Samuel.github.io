@@ -139,8 +139,8 @@ void main() {
     const DEFAULTS = {
         background: "#000000",
         baseColor: "#62EBE1",
-        accentColor: "#00d5ff",
-        highlight: "#FF2E63",
+        accentColor: "#4FD5C8",
+        highlight: "#2E9B94",
         density: 150,
         speed: 9,
         curtainWidth: 30,
