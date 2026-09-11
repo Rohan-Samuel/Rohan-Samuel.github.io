@@ -1,9 +1,21 @@
 <header>
-    <div class="hero" data-hero-shader>
+    <div class="hero" data-light-curtain
+        data-background="#000000"
+        data-base-color="#62EBE1"
+        data-accent-color="#FF2E63"
+        data-highlight="#FF2E63"
+        data-density="150"
+        data-speed="9"
+        data-curtain-width="30"
+        data-spread="0"
+        data-striation="0"
+        data-hover="17"
+        data-reach="10"
+        data-opacity="0.3">
         <img src="{{ '/img/Landing1.png' | relative_url }}" alt="" aria-hidden="true">
         <div class="hero-text">
             <h1{% if include.id %} id="{{ include.id }}"{% endif %}{% if include.live %} aria-live="polite"{% endif %}>{{ include.title }}</h1>
         </div>
     </div>
 </header>
-<script src="{{ '/js/hero-shader.js' | relative_url }}" defer></script>
+<script src="{{ '/js/light-curtain-shader.js' | relative_url }}" defer></script>

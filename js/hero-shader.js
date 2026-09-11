@@ -65,15 +65,15 @@ void main() {
     const HOVER_REACH_PX = 260;
 
     const DEFAULTS = {
-        speed: 10,
-        brightness: 101,
-        thickness: 13,
-        chromatic: 6,
-        bandGap: 7,
-        zoom: 300,
-        hover: 31,
-        tint: "#FF2E63",
-        tint2: "#62EBE1",
+        speed: 20,
+        brightness: 20,
+        thickness: 9,
+        chromatic: 0,
+        bandGap: 10,
+        zoom: 130,
+        hover: 50,
+        tint: "#62EBE1",
+        tint2: "#4FD5C8",
     };
 
     function parseColor(input) {
