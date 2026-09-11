@@ -72,8 +72,8 @@ void main() {
         bandGap: 7,
         zoom: 300,
         hover: 31,
-        tint: "#62EBE1",
-        tint2: "#FF2E63",
+        tint: "#FF2E63",
+        tint2: "#62EBE1",
     };
 
     function parseColor(input) {
