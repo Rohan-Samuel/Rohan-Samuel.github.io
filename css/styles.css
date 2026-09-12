@@ -1083,9 +1083,9 @@ footer {
     position: relative;
     overflow: hidden;
     color: #fff;
-    padding: 80px 20px;
+    padding: 30px 20px;
     text-align: center;
-    min-height: 400px;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
