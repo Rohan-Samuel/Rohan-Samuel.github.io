@@ -1095,7 +1095,7 @@ footer {
     position: relative;
     z-index: 1;
     pointer-events: auto;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 40px;
     border-radius: 8px;
 }
