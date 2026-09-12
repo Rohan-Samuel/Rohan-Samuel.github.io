@@ -162,7 +162,8 @@
             touch-action: pan-y;
         }
 
-        .lightbox-3d__main img {
+        .lightbox-3d__main img,
+        .lightbox-3d__main video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -207,7 +208,13 @@
             padding-bottom: 6px;
         }
 
+        .lightbox-3d__strip-item {
+            position: relative;
+            flex-shrink: 0;
+        }
+
         .lightbox-3d__strip img {
+            display: block;
             width: 90px;
             height: 90px;
             object-fit: cover;
@@ -216,7 +223,18 @@
             opacity: 0.5;
             border: 2px solid transparent;
             transition: opacity 0.2s ease, border-color 0.2s ease;
-            flex-shrink: 0;
+        }
+
+        .lightbox-3d__strip-item.is-video::after {
+            content: "\25B6";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 0.9rem;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+            pointer-events: none;
         }
 
         .lightbox-3d__strip img:hover {
@@ -271,6 +289,7 @@
             <div class="lightbox-3d__main">
                 <button type="button" class="lightbox-3d__nav lightbox-3d__nav--prev" id="lightbox-3d-prev" aria-label="Previous image">&#8249;</button>
                 <img id="lightbox-3d-main-img" src="" alt="">
+                <video id="lightbox-3d-main-video" muted loop playsinline hidden></video>
                 <button type="button" class="lightbox-3d__nav lightbox-3d__nav--next" id="lightbox-3d-next" aria-label="Next image">&#8250;</button>
             </div>
             <div class="lightbox-3d__strip" id="lightbox-3d-strip"></div>
@@ -292,6 +311,7 @@
                     "../img/robocube_sentry_front.jpg",
                     "../img/robocube_sentry_lens.jpg",
                     "../img/robocube_sentry_wireframe.jpg",
+                    { type: "video", src: "../vid/CubeRoboWalkCycle4.mp4", poster: "../img/robocube_sentry_walkcycle_poster.jpg" },
                 ],
             },
             {
@@ -394,6 +414,7 @@
         const lightboxTitleEl = document.getElementById("lightbox-3d-title");
         const lightboxCounterEl = document.getElementById("lightbox-3d-counter");
         const lightboxMainImgEl = document.getElementById("lightbox-3d-main-img");
+        const lightboxMainVideoEl = document.getElementById("lightbox-3d-main-video");
         const lightboxStripEl = document.getElementById("lightbox-3d-strip");
         const lightboxPrevEl = document.getElementById("lightbox-3d-prev");
         const lightboxNextEl = document.getElementById("lightbox-3d-next");
@@ -403,6 +424,14 @@
         let lastScrollTime = 0;
         let touchStartX = null;
 
+        function isVideoItem(item) {
+            return typeof item === "object" && item !== null && item.type === "video";
+        }
+
+        function itemThumbSrc(item) {
+            return isVideoItem(item) ? item.poster : item;
+        }
+
         function renderGallery() {
             projects3d.forEach((project, index) => {
                 const item = document.createElement("button");
@@ -411,7 +440,7 @@
                 item.setAttribute("aria-label", "View " + project.title);
 
                 const img = document.createElement("img");
-                img.src = project.images[0];
+                img.src = itemThumbSrc(project.images[0]);
                 img.alt = project.title + " preview";
                 item.appendChild(img);
 
@@ -446,7 +475,7 @@
         }
 
         function attachHoverPreview(item, img, project) {
-            const previewImages = project.images.slice(0, HOVER_PREVIEW_LIMIT);
+            const previewImages = project.images.filter((entry) => !isVideoItem(entry)).slice(0, HOVER_PREVIEW_LIMIT);
             if (previewImages.length <= 1) return;
 
             let previewIndex = 0;
@@ -462,30 +491,56 @@
             item.addEventListener("mouseleave", () => {
                 clearInterval(intervalId);
                 previewIndex = 0;
-                img.src = project.images[0];
+                img.src = itemThumbSrc(project.images[0]);
             });
         }
 
         function renderStrip() {
             lightboxStripEl.innerHTML = "";
-            currentProject.images.forEach((src, index) => {
+            currentProject.images.forEach((entry, index) => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "lightbox-3d__strip-item" + (isVideoItem(entry) ? " is-video" : "");
+
                 const thumb = document.createElement("img");
-                thumb.src = src;
-                thumb.alt = currentProject.title + " image " + (index + 1);
+                thumb.src = itemThumbSrc(entry);
+                thumb.alt = currentProject.title + (isVideoItem(entry) ? " walk cycle video" : " image " + (index + 1));
                 if (index === currentIndex) {
                     thumb.classList.add("is-active");
                 }
-                thumb.addEventListener("click", () => showImage(index));
-                lightboxStripEl.appendChild(thumb);
+                wrapper.addEventListener("click", () => showImage(index));
+                wrapper.appendChild(thumb);
+                lightboxStripEl.appendChild(wrapper);
             });
         }
 
         function showImage(index) {
             const total = currentProject.images.length;
             currentIndex = (index + total) % total;
-            lightboxMainImgEl.src = currentProject.images[currentIndex];
-            lightboxMainImgEl.alt = currentProject.title + " image " + (currentIndex + 1);
+            const entry = currentProject.images[currentIndex];
             lightboxCounterEl.textContent = (currentIndex + 1) + " / " + total;
+
+            if (isVideoItem(entry)) {
+                lightboxMainImgEl.hidden = true;
+                lightboxMainVideoEl.hidden = false;
+                lightboxMainVideoEl.poster = entry.poster;
+                if (lightboxMainVideoEl.getAttribute("src") !== entry.src) {
+                    lightboxMainVideoEl.src = entry.src;
+                } else {
+                    try {
+                        lightboxMainVideoEl.currentTime = 0;
+                    } catch (err) {
+                        /* ignore - video not ready yet, plays from wherever it can */
+                    }
+                }
+                lightboxMainVideoEl.play().catch(() => {});
+            } else {
+                lightboxMainVideoEl.pause();
+                lightboxMainVideoEl.hidden = true;
+                lightboxMainVideoEl.removeAttribute("src");
+                lightboxMainImgEl.hidden = false;
+                lightboxMainImgEl.src = entry;
+                lightboxMainImgEl.alt = currentProject.title + " image " + (currentIndex + 1);
+            }
 
             const thumbs = lightboxStripEl.querySelectorAll("img");
             thumbs.forEach((thumb, i) => {
@@ -510,6 +565,7 @@
         function closeLightbox() {
             lightboxEl.classList.remove("is-open");
             document.body.style.overflow = "";
+            lightboxMainVideoEl.pause();
             currentProject = null;
         }
 
