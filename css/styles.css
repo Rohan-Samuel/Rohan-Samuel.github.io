@@ -37,117 +37,396 @@ a{
 
 /* ============= Navigation Bar =============== */
 
-nav {
+:root {
+    --nav-height: 68px;
+}
 
+/* Sticky nav would otherwise cover in-page anchor targets (e.g. #project-gallery). */
+html {
+    scroll-padding-top: calc(var(--nav-height) + 12px);
+}
+
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: var(--nav-height);
+    /* Lines the bar up with the 60%-wide .container on desktop; the mobile
+       breakpoint below drops this to a flat gutter. */
     padding-inline: 20vw;
-    height: 70px;
     background-color: var(--secondary-color);
+    /* Light type on a dark bar renders thin and smeared without this. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.name p {
+/* The site has no global box-sizing, so scope it here to keep the declared
+   touch-target sizes literal. */
+.nav *,
+.nav-menu *,
+.nav-scrim {
+    box-sizing: border-box;
+}
+
+/* The global `button` rule paints a filled pink/cyan pill; nav buttons are
+   icon-only and must opt out of it, hover included. */
+.nav button,
+.nav button:hover {
     margin: 0;
+    background: none;
+    border: 0;
+    font: inherit;
 }
 
-.name a{
+.nav-brand {
+    font-family: "Raleway", sans-serif;
+    /* Raleway is loaded as a variable font, so these weights are real
+       instances rather than browser-synthesised (blurry) bold. */
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    line-height: 1;
     color: var(--tertiary-color);
-    font-size: 2rem;
-    font-weight: 1000;
-    align-items: center ;
+    white-space: nowrap;
+    transition: color .2s ease;
 }
 
-.nav-main-menu {
+.nav-brand:hover,
+.nav-brand:focus-visible {
+    color: var(--primary-color);
+}
+
+.nav-list {
     display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .nav-link {
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 26px 10px;
-    margin-inline: 10px;
-    transition: .3s;
+    display: flex;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: color .2s ease, background-color .2s ease;
 }
 
-.nav-link:hover {
-    color: var(--primary-color)
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-item--has-submenu:hover > .nav-link,
+.nav-item--has-submenu:focus-within > .nav-link {
+    color: var(--primary-color);
 }
 
-.nav-link span {
-margin-right: 5px;
+.nav-submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-inline-start: -8px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    transition: color .2s ease, background-color .2s ease;
 }
 
-.fa-chevron-down {
-    font-size: 12px;
-    transition: .3s;
+.nav-chevron {
+    transition: transform .25s ease;
 }
 
-/* ============= Dropdown =============== */
+.nav .nav-submenu-toggle:hover,
+.nav-item--has-submenu:hover .nav-submenu-toggle,
+.nav-item--has-submenu:focus-within .nav-submenu-toggle {
+    color: var(--primary-color);
+}
 
-.dropdown:hover .fa-chevron-down,
-.dropdown:focus-within .fa-chevron-down{
+.nav .nav-toggle:hover {
+    color: var(--primary-color);
+}
+
+.nav-item--has-submenu:hover .nav-chevron,
+.nav-submenu-toggle[aria-expanded="true"] .nav-chevron {
     transform: rotate(180deg);
 }
 
-.dropdown:hover .nav-link,
-.dropdown:focus-within .nav-link {
-    color: var(--primary-color);
-}
-
-.dropdown{
-    position: relative;
-}
-
-.nav-main-menu .dropdown-content {
-    display: none;
+.nav-submenu {
     position: absolute;
-    top: 30px;
-    left: 15px;
+    top: calc(100% + 6px);
+    left: 6px;
+    min-width: 150px;
+    margin: 0;
+    padding: 6px;
     background-color: var(--secondary-color);
-    min-width: 130px;
-    border-top: 3px solid var(--secondary-color);
-    padding-left: 0;
-    border-radius: 0 0 3px 3px;
-    animation: slideUp .3s;
-    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
 }
 
-.dropdown-content li{
+/* An invisible bridge keeps hover alive across the gap to the panel. */
+.nav-item--has-submenu::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.nav-item--has-submenu:hover .nav-submenu,
+.nav-item--has-submenu:focus-within .nav-submenu,
+.nav-submenu-toggle[aria-expanded="true"] + .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-submenu-inner {
+    margin: 0;
     padding: 0;
-    border-radius: 0 0 3px 3px;
+    min-height: 0;
+    list-style: none;
 }
 
-.dropdown-content li a {
+.nav-submenu a {
     display: block;
-    padding: 10px;
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: color .2s ease, background-color .2s ease;
 }
 
-.dropdown-content li:hover {
-    background-color: var(--tertiary-color);
+.nav-submenu a:hover,
+.nav-submenu a:focus-visible {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
-.dropdown-content li:hover a {
-    color: var(--primary-color);
+/* ============= Nav: mobile toggle & scrim =============== */
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    /* 48px keeps the hit area at the recommended touch-target minimum. */
+    width: 48px;
+    height: 48px;
+    margin-inline-end: -10px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
 }
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
+.nav-toggle-box {
+    position: relative;
     display: block;
+    width: 24px;
+    height: 16px;
 }
 
+.nav-toggle-bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transition: transform .25s ease, opacity .2s ease, top .25s ease;
+}
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+.nav-toggle-bar:nth-child(1) { top: 0; }
+.nav-toggle-bar:nth-child(2) { top: 7px; }
+.nav-toggle-bar:nth-child(3) { top: 14px; }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+    top: 7px;
+    transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+.nav-scrim {
+    position: fixed;
+    inset: var(--nav-height) 0 0 0;
+    z-index: 900;
+    background-color: rgba(10, 12, 16, 0.55);
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.nav-scrim.is-visible {
+    opacity: 1;
+}
+
+.nav-toggle:focus-visible,
+.nav-submenu-toggle:focus-visible,
+.nav-link:focus-visible,
+.nav-brand:focus-visible,
+.nav-submenu a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ============= Nav: mobile layout =============== */
+
+@media (max-width: 860px) {
+    .nav {
+        padding-inline-start: calc(18px + env(safe-area-inset-left));
+        padding-inline-end: calc(18px + env(safe-area-inset-right));
     }
-    to {
+
+    .nav-brand {
+        font-size: 1.4rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        z-index: 950;
+        max-height: calc(100dvh - var(--nav-height));
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 8px 16px calc(20px + env(safe-area-inset-bottom));
+        background-color: var(--secondary-color);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0 0 14px 14px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity .25s ease, transform .25s ease, visibility .25s;
+    }
+
+    .nav-menu.is-open {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    .nav-item {
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-item:last-child {
+        border-bottom: 0;
+    }
+
+    /* On touch there is no hover, so the submenu is an accordion the
+       chevron button opens; the label itself stays a plain link. */
+    .nav-item--has-submenu {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+
+    .nav-item--has-submenu::after {
+        content: none;
+    }
+
+    .nav-link {
+        min-height: 52px;
+        font-size: 1.15rem;
+        padding: 12px 8px;
+        border-radius: 8px;
+    }
+
+    .nav-submenu-toggle {
+        width: 48px;
+        height: 48px;
+        margin-inline-start: 0;
+    }
+
+    .nav-submenu {
+        grid-column: 1 / -1;
+        position: static;
+        display: grid;
+        grid-template-rows: 0fr;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: grid-template-rows .25s ease;
+    }
+
+    .nav-submenu-toggle[aria-expanded="true"] + .nav-submenu {
+        grid-template-rows: 1fr;
+    }
+
+    .nav-submenu-inner {
+        overflow: hidden;
+    }
+
+    .nav-submenu a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        font-size: 1.02rem;
+        margin-left: 8px;
+        padding: 10px 12px;
+        border-left: 2px solid rgba(255, 255, 255, 0.16);
+        border-radius: 0 8px 8px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-menu,
+    .nav-submenu,
+    .nav-scrim,
+    .nav-chevron,
+    .nav-toggle-bar {
+        transition-duration: 0.01ms;
     }
 }
 
@@ -1499,9 +1778,6 @@ button:hover {
     .project-gallery {
         grid-template-columns: 1fr;
     }
-    .navbar {
-        position: relative;
-    }
     .image-container {
         width: 100%
     }
@@ -1537,17 +1813,6 @@ button:hover {
     }
     .project-story-item:last-child {
         grid-column: auto;
-    }
-    nav {
-        padding-inline: 16px;
-    }
-    .name a {
-        font-size: 1.4rem;
-    }
-    .nav-link {
-        font-size: 1rem;
-        padding: 26px 4px;
-        margin-inline: 6px;
     }
     }
 

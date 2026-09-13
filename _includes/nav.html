@@ -1,18 +1,39 @@
-<nav class="nav">
-    <div class="name">
-        <p><a href="{{ '/index.html' | relative_url }}">Rohan Samuel</a></p>
+<nav class="nav" id="site-nav">
+    <a class="nav-brand" href="{{ '/index.html' | relative_url }}">Rohan Samuel</a>
+
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu"
+        aria-label="Open menu">
+        <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+        </span>
+    </button>
+
+    <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+            <li class="nav-item nav-item--has-submenu">
+                <a class="nav-link" href="{{ '/work/all.html' | relative_url }}#project-gallery">Work</a>
+                <button type="button" class="nav-submenu-toggle" aria-expanded="false" aria-controls="nav-submenu-work"
+                    aria-label="Show work categories">
+                    <svg class="nav-chevron" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"
+                        focusable="false">
+                        <path d="M3.5 6L8 10.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="nav-submenu" id="nav-submenu-work">
+                    <ul class="nav-submenu-inner">
+                        <li><a href="{{ '/work/games.html' | relative_url }}">Games</a></li>
+                        <li><a href="{{ '/work/film.html' | relative_url }}">Film</a></li>
+                        <li><a href="{{ '/work/3d.html' | relative_url }}">3D</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ '/about.html' | relative_url }}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+        </ul>
     </div>
-    <ul class="nav-main-menu">
-        <li class="dropdown">
-            <a href="{{ '/work/all.html' | relative_url }}#project-gallery" class="nav-link"><span>Work</span><i
-                    class="fa fa-chevron-down"></i></a>
-            <ul class="dropdown-content">
-                <li><a href="{{ '/work/games.html' | relative_url }}">Games</a></li>
-                <li><a href="{{ '/work/film.html' | relative_url }}">Film</a></li>
-                <li><a href="{{ '/work/3d.html' | relative_url }}">3D</a></li>
-            </ul>
-        </li>
-        <li><a class="nav-link" href="{{ '/about.html' | relative_url }}">About</a></li>
-        <li><a class="nav-link" href="{{ '/contact.html' | relative_url }}">Contact</a></li>
-    </ul>
 </nav>
+<div class="nav-scrim" id="nav-scrim" hidden></div>
+<script src="{{ '/js/nav.js' | relative_url }}" defer></script>
