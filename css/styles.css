@@ -177,7 +177,7 @@ html {
     padding: 6px;
     background-color: var(--secondary-color);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
+    border-radius: 2px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
     opacity: 0;
     visibility: hidden;
@@ -217,7 +217,7 @@ html {
     font-weight: 500;
     color: #fff;
     padding: 10px 12px;
-    border-radius: 6px;
+    border-radius: 2px;
     transition: color .2s ease, background-color .2s ease;
 }
 
@@ -330,7 +330,7 @@ html {
         padding: 8px 16px calc(20px + env(safe-area-inset-bottom));
         background-color: var(--secondary-color);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0 0 14px 14px;
+        border-radius: 0 0 3px 3px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
         opacity: 0;
         visibility: hidden;
@@ -375,7 +375,7 @@ html {
         min-height: 52px;
         font-size: 1.15rem;
         padding: 12px 8px;
-        border-radius: 8px;
+        border-radius: 2px;
     }
 
     .nav-submenu-toggle {
@@ -416,7 +416,7 @@ html {
         margin-left: 8px;
         padding: 10px 12px;
         border-left: 2px solid rgba(255, 255, 255, 0.16);
-        border-radius: 0 8px 8px 0;
+        border-radius: 0 2px 2px 0;
     }
 }
 
