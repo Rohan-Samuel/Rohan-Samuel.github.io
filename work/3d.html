@@ -20,8 +20,8 @@
         .gallery-3d {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-            grid-template-rows: repeat(2, 170px);
-            grid-auto-flow: column dense;
+            grid-auto-rows: 170px;
+            grid-auto-flow: dense;
             gap: 18px;
             margin-top: 20px;
         }
@@ -29,6 +29,18 @@
         .gallery-3d-item.is-featured {
             grid-column: span 2;
             grid-row: span 2;
+        }
+
+        .gallery-3d-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            grid-row: span 2;
+        }
+
+        .gallery-3d-stack .gallery-3d-item {
+            flex: 1 1 0;
+            min-height: 0;
         }
 
         .gallery-3d-item {
@@ -262,8 +274,8 @@
                 grid-row: span 1;
             }
 
-            .gallery-3d {
-                grid-auto-flow: row dense;
+            .gallery-3d-stack {
+                display: contents;
             }
         }
     </style>
@@ -396,46 +408,76 @@
             return isVideoItem(item) ? item.poster : item;
         }
 
+        function createGalleryItem(project, index) {
+            const item = document.createElement("button");
+            item.type = "button";
+            item.className = "gallery-3d-item" + (project.featured ? " is-featured" : "");
+            item.setAttribute("aria-label", "View " + project.title);
+
+            const img = document.createElement("img");
+            img.src = itemThumbSrc(project.images[0]);
+            img.alt = project.title + " preview";
+            item.appendChild(img);
+
+            const overlay = document.createElement("div");
+            overlay.className = "overlay";
+
+            const overlayInner = document.createElement("div");
+            overlayInner.className = "overlay-inner";
+
+            const h3 = document.createElement("h3");
+            h3.textContent = project.title;
+            overlayInner.appendChild(h3);
+
+            const kicker = document.createElement("p");
+            kicker.className = "gallery-3d-meta__kicker";
+            kicker.textContent = project.kicker;
+            overlayInner.appendChild(kicker);
+
+            const tech = document.createElement("p");
+            tech.className = "gallery-3d-meta__tech";
+            tech.textContent = project.tech;
+            overlayInner.appendChild(tech);
+
+            overlay.appendChild(overlayInner);
+            item.appendChild(overlay);
+
+            item.addEventListener("click", () => openLightbox(index));
+            attachHoverPreview(item, img, project);
+
+            return item;
+        }
+
         function renderGallery() {
+            let pendingSmall = null;
+
             projects3d.forEach((project, index) => {
-                const item = document.createElement("button");
-                item.type = "button";
-                item.className = "gallery-3d-item" + (project.featured ? " is-featured" : "");
-                item.setAttribute("aria-label", "View " + project.title);
+                const item = createGalleryItem(project, index);
 
-                const img = document.createElement("img");
-                img.src = itemThumbSrc(project.images[0]);
-                img.alt = project.title + " preview";
-                item.appendChild(img);
+                if (project.featured) {
+                    if (pendingSmall) {
+                        galleryEl.appendChild(pendingSmall);
+                        pendingSmall = null;
+                    }
+                    galleryEl.appendChild(item);
+                    return;
+                }
 
-                const overlay = document.createElement("div");
-                overlay.className = "overlay";
-
-                const overlayInner = document.createElement("div");
-                overlayInner.className = "overlay-inner";
-
-                const h3 = document.createElement("h3");
-                h3.textContent = project.title;
-                overlayInner.appendChild(h3);
-
-                const kicker = document.createElement("p");
-                kicker.className = "gallery-3d-meta__kicker";
-                kicker.textContent = project.kicker;
-                overlayInner.appendChild(kicker);
-
-                const tech = document.createElement("p");
-                tech.className = "gallery-3d-meta__tech";
-                tech.textContent = project.tech;
-                overlayInner.appendChild(tech);
-
-                overlay.appendChild(overlayInner);
-                item.appendChild(overlay);
-
-                item.addEventListener("click", () => openLightbox(index));
-                attachHoverPreview(item, img, project);
-
-                galleryEl.appendChild(item);
+                if (pendingSmall) {
+                    const stack = document.createElement("div");
+                    stack.className = "gallery-3d-stack";
+                    stack.appendChild(pendingSmall);
+                    stack.appendChild(item);
+                    galleryEl.appendChild(stack);
+                    pendingSmall = null;
+                } else {
+                    pendingSmall = item;
+                }
             });
+
+            if (pendingSmall) {
+                galleryEl.appendChild(pendingSmall);
+            }
         }
 
         function attachHoverPreview(item, img, project) {
