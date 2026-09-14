@@ -328,7 +328,7 @@
                     "../img/robocube_sentry_front.jpg",
                     "../img/robocube_sentry_unity_walk.jpg",
                     "../img/robocube_sentry_wireframe.jpg",
-                    { type: "video", src: "../vid/CubeRoboWalkCycle4.mp4", poster: "../img/robocube_sentry_walkcycle_poster.jpg" },
+                    { type: "video", src: "../vid/CubeRoboWalkCycle4.mp4", poster: "../img/robocube_sentry_walkcycle_poster.jpg", alt: "walk cycle animation" },
                 ],
             },
             {
@@ -351,6 +351,7 @@
                     "../img/robo1.jpg",
                     "../img/robo2.jpg",
                     "../img/robo3.jpg",
+                    { type: "video", src: "../vid/WandererJump.mp4", poster: "../img/wanderer_jump_poster.jpg", alt: "jump animation" },
                 ],
             },
             {
@@ -509,7 +510,9 @@
 
                 const thumb = document.createElement("img");
                 thumb.src = itemThumbSrc(entry);
-                thumb.alt = currentProject.title + (isVideoItem(entry) ? " walk cycle video" : " image " + (index + 1));
+                thumb.alt = isVideoItem(entry)
+                    ? currentProject.title + " " + (entry.alt || "animation")
+                    : currentProject.title + " image " + (index + 1);
                 if (index === currentIndex) {
                     thumb.classList.add("is-active");
                 }
