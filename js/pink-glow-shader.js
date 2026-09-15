@@ -11,7 +11,7 @@
 (function () {
     const DEFAULTS = {
         color: "255, 46, 99",
-        size: 160,
+        size: 260,
         intensity: 0.68,
         damping: 65,
         fade: 14,
@@ -39,8 +39,8 @@
         spot.style.borderRadius = "50%";
         spot.style.background =
             "radial-gradient(circle, rgba(255, 255, 255, " + Math.min(opts.intensity * 1.15, 1) + ") 0%, rgba(" +
-            opts.color + ", " + opts.intensity + ") 14%, rgba(" +
-            opts.color + ", " + (opts.intensity * 0.45) + ") 40%, rgba(" + opts.color + ", 0) 72%)";
+            opts.color + ", " + opts.intensity + ") 4%, rgba(" +
+            opts.color + ", " + (opts.intensity * 0.45) + ") 45%, rgba(" + opts.color + ", 0) 100%)";
         spot.style.mixBlendMode = "screen";
         spot.style.zIndex = "5";
         spot.style.pointerEvents = "none";
