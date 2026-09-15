@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rohan Samuel: Resume (Game Developer)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap" rel="stylesheet">
+<style>
+  /* ══════════════════════════════════════════════════════════════════════
+     DESIGN C: "Balanced Modern"
+     Middle ground between A (full navy block) and B (no color at all):
+     white page throughout, but the name sits in the accent navy and a
+     heavy accent rule anchors the header; no filled background anywhere,
+     so there's nothing for a parser to misread, but it still reads as
+     designed rather than austere. Section labels are small-caps with a
+     colored numeral-style tick instead of a dot.
+     ══════════════════════════════════════════════════════════════════════ */
+  :root{
+    --font:'Roboto Flex','Roboto','Helvetica Neue',Arial,sans-serif;
+    --navy:#0B2A4A;
+    --accent:#1C7ED6;
+    --ink:#1E2328;
+    --ink-strong:#000000;
+    --gray:#5C6570;
+
+    --s-name:150px;  --s-tag:50px;   --s-contact:39px;
+    --s-intro:47px;  --s-h2:54px;    --s-skill:43px;
+    --s-org:55px;    --s-meta:40px;  --s-role:46px;  --s-body:43px;
+
+    --lh-body:52px;
+    --gap-bullet:17px;
+    --gap-entry:40px;
+    --gap-section:56px;
+    --rule-mb:32px;
+    --margin-x:172px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);font-optical-sizing:auto;background:#e8e8ea;color:var(--ink)}
+  .sheet{position:relative;width:2550px;height:3300px;overflow:hidden;background:#fff;
+         zoom:0.32;margin:0 auto;box-shadow:0 6px 44px rgba(0,0,0,.18)}
+
+  .masthead{padding:82px var(--margin-x) 0;display:flex;justify-content:space-between;align-items:flex-start}
+  .name{font-size:var(--s-name);line-height:.92;font-weight:800;color:var(--navy);letter-spacing:-1px}
+  .tagline{font-size:var(--s-tag);font-weight:600;margin-top:16px;color:var(--ink-strong)}
+  .contact{font-size:var(--s-contact);line-height:54px;text-align:right;padding-top:8px;color:var(--gray)}
+  .contact a{color:var(--navy);text-decoration:none;font-weight:500}
+  .contact .sep{opacity:.5;padding:0 10px}
+  .contact .lbl{color:var(--accent);font-weight:700}
+  .accent-bar{height:0;border-top:8px solid var(--accent);margin-top:36px}
+
+  .body{padding:0 var(--margin-x)}
+  .intro{font-size:var(--s-intro);line-height:58px;margin:34px 0 0;max-width:2150px}
+
+  h2{font-size:var(--s-h2);line-height:1.0;font-weight:700;color:var(--navy);
+     margin-top:var(--gap-section);text-transform:uppercase;letter-spacing:3px;
+     display:flex;align-items:center;gap:16px}
+  h2::before{content:"";display:inline-block;width:34px;height:0;border-top:8px solid var(--accent)}
+  .rule{height:0;border-top:1px solid #DADFE4;margin:14px 0 var(--rule-mb) 0;width:100%}
+
+  .skill{display:flex;gap:0;font-size:var(--s-skill);line-height:52px;margin-bottom:4px}
+  .skill b{font-weight:700;color:var(--navy)}
+
+  .entry{margin-bottom:var(--gap-entry)}
+  .entry:last-child{margin-bottom:0}
+  .head{display:flex;justify-content:space-between;align-items:baseline;gap:40px}
+  .org{font-size:var(--s-org);line-height:58px;font-weight:700;color:var(--ink-strong)}
+  .org .sub{font-weight:400;color:var(--gray);font-size:var(--s-meta)}
+  .org a{color:var(--navy);text-decoration:none;border-bottom:3px solid var(--accent)}
+  .date{font-size:var(--s-meta);line-height:58px;color:var(--gray);white-space:nowrap;flex:none;font-weight:500}
+  .role{font-size:var(--s-role);line-height:50px;font-weight:600;color:var(--ink-strong);margin-bottom:10px}
+  .role .stack{font-weight:400;color:var(--gray);font-size:var(--s-meta)}
+
+  .bul{display:flex;gap:24px;font-size:var(--s-body);line-height:var(--lh-body);
+       margin-bottom:var(--gap-bullet)}
+  .bul:last-child{margin-bottom:0}
+  .bul::before{content:"";flex:none;width:17px;height:0;border-top:5px solid var(--accent);margin-top:22px}
+
+  .nb{white-space:nowrap}
+  @page{size:8.5in 11in;margin:0}
+  @media print{ body{background:#fff} .sheet{margin:0;box-shadow:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="masthead">
+    <div>
+      <div class="name">Rohan Samuel</div>
+      <div class="tagline">Game Developer</div>
+    </div>
+    <div class="contact">
+      Vancouver, BC<span class="sep">·</span>1.236.558.1322<br>
+      rohan2309@gmail.com<span class="sep">·</span><a href="https://github.com/Rohan-Samuel">github.com/Rohan-Samuel</a><br>
+      <a href="https://www.linkedin.com/in/r-samuel/">linkedin.com/in/r-samuel</a><span class="sep">·</span><span class="lbl">Portfolio</span> <a href="https://rohan-samuel.github.io">rohan-samuel.github.io</a>
+    </div>
+  </div>
+  <div style="padding:0 var(--margin-x)"><div class="accent-bar"></div></div>
+
+  <div class="body">
+    <p class="intro">Game developer with four years building gameplay systems in Unity and C#: character control, combat, and interactive audio, plus the technical art and tooling to support them. Currently building a solo <span class="nb">action-adventure</span> title end to end.</p>
+
+    <h2>Skills</h2>
+    <div class="rule"></div>
+    <div class="skill"><span><b>Languages:</b> C#, Python, JavaScript</span></div>
+    <div class="skill"><span><b>Engine:</b> Unity (URP), XR Interaction Toolkit, Meta Quest build &amp; deploy, Git</span></div>
+    <div class="skill"><span><b>Gameplay systems:</b> Character movement, animation state machines, physics, NavMesh, ScriptableObjects, AI/enemy behavior, interactive audio</span></div>
+    <div class="skill"><span><b>Technical art:</b> Maya (modeling, rigging, animation), Substance Painter, computer vision (OpenCV)</span></div>
+
+    <h2>Projects</h2>
+    <div class="rule"></div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org"><a href="https://rohan-samuel.github.io/projects/robocube.html">RoboCube</a> <span class="sub">· Solo Developer &amp; Technical Artist</span></div>
+        <div class="date">Aug 2025 – Present</div>
+      </div>
+      <div class="role">Soulslike <span class="nb">action-adventure</span> <span class="stack">· Unity 6, C# · playable build on GitHub</span></div>
+      <div class="bul"><span>Built the playable core in C#: third-person movement and camera, a stat system driving health and abilities, and an overheat mechanic that limits sustained action use.</span></div>
+      <div class="bul"><span>Designed an extensible weapon and item system with turret aim-tracking as the first implementation, plus multi-slot save/load persistence; enemy lock-on and damage resolution in progress.</span></div>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org"><a href="https://rohan-samuel.github.io/projects/kinesthesia.html">Kinesthesia</a> <span class="sub">· Programmer, team of 3</span></div>
+        <div class="date">Dec 2023</div>
+      </div>
+      <div class="role">Body-tracking music interface <span class="stack">· Unity, C#, OpenCV</span></div>
+      <div class="bul"><span>Built a webcam body-tracking interface with OpenCV that maps limb position to live audio parameters in Unity in real time.</span></div>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org"><a href="https://rohan-samuel.github.io/projects/harmony.html">Harmony</a> <span class="sub">· Audio &amp; UI Programmer, team of 5</span></div>
+        <div class="date">Jan – Apr 2023</div>
+      </div>
+      <div class="role">Musical VR experience <span class="stack">· Unity, C#, Meta Quest 2 · playable on itch.io</span></div>
+      <div class="bul"><span>Programmed the interactive music system: instrument layers run continuously but muted, so capturing a school of fish unmutes its layer and any combination still sounds intentional.</span></div>
+      <div class="bul"><span>Built the in-headset UI from scratch.</span></div>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org"><a href="https://rohan-samuel.github.io/projects/invasive.html">Invasive</a> <span class="sub">· Lead Programmer &amp; Technical Artist, team of 4</span></div>
+        <div class="date">Sep – Dec 2022</div>
+      </div>
+      <div class="role">3D horror game <span class="stack">· Unity, C#, Substance Painter</span></div>
+      <div class="bul"><span>Wrote all gameplay C# (character movement, animation state machines, stealth mechanics, and UI interaction) and authored the PBR textures for every model in Substance Painter.</span></div>
+    </div>
+
+    <h2>Experience</h2>
+    <div class="rule"></div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org">Kwantlen Polytechnic University <span class="sub">· Entertainment Arts</span></div>
+        <div class="date">Jan – Aug 2025</div>
+      </div>
+      <div class="role">Lab Instructor, Developing in XR</div>
+      <div class="bul"><span>Taught hands-on XR labs in Unity and the XR Interaction Toolkit (spatial interaction, immersive UX, performance optimization) and reviewed student VR/AR prototypes.</span></div>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <div class="org">Simon Fraser University <span class="sub">· Interactive Arts &amp; Technology</span></div>
+        <div class="date">Sep 2023 – Apr 2025</div>
+      </div>
+      <div class="role">Teaching Assistant · IAT 343, Animation</div>
+      <div class="bul"><span>Ran weekly Maya tutorials on modeling, rigging, and animation for 40+ students.</span></div>
+    </div>
+
+    <h2>Education</h2>
+    <div class="rule"></div>
+    <div class="entry">
+      <div class="head">
+        <div class="org">Simon Fraser University <span class="sub">· BSc, Interactive Arts &amp; Technology</span></div>
+        <div class="date">2019 – 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+addEventListener('load', function () {
+  var root  = document.documentElement;
+  var sheet = document.querySelector('.sheet');
+  var body  = sheet.querySelector('.body');
+  var TARGET = 140;
+  function headroom() {
+    var s = sheet.getBoundingClientRect();
+    var b = body.lastElementChild.getBoundingClientRect();
+    return (s.bottom - b.bottom) / s.height * 3300;
+  }
+  var steps = [
+    {v:'gap-bullet',  from:17, min:12},
+    {v:'lh-body',     from:52, min:47},
+    {v:'gap-entry',   from:40, min:28},
+    {v:'rule-mb',     from:32, min:22},
+    {v:'gap-section', from:56, min:40}
+  ];
+  var cur = steps.map(function (s) { return s.from; });
+  var guard = 0;
+  while (headroom() < TARGET && guard++ < 90) {
+    var moved = false;
+    for (var i = 0; i < steps.length; i++) {
+      if (cur[i] > steps[i].min) {
+        cur[i] = Math.max(steps[i].min, cur[i] - 1);
+        root.style.setProperty('--' + steps[i].v, cur[i] + 'px');
+        moved = true;
+        break;
+      }
+    }
+    if (!moved) break;
+  }
+});
+</script>
+</body>
+</html>
