@@ -7,6 +7,11 @@
     /* Default secondary color */
     --tertiary-color: #FF2E63;
     /* Default tertiary color */
+    /* The brand pink only reaches 3.0:1 on the light background, below the 4.5:1
+       WCAG AA needs for body text. These two are the same hue re-stepped for each
+       ground: ink for text and buttons on light, bright for text on the dark navy. */
+    --tertiary-ink: #C9003C;
+    --tertiary-bright: #FF5C82;
     --background-color: #EAEAEA;
     /* Default background color */
     --text-color: #1d2024;
@@ -630,7 +635,7 @@ html {
     align-items: center;
     gap: 6px;
     margin: 12px 0 6px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-size: 0.78rem;
     font-weight: 700;
@@ -701,7 +706,7 @@ html {
 
 .hero-home__eyebrow {
     margin: 0 0 10px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-bright);
     font-family: "Raleway", sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
@@ -755,8 +760,8 @@ html {
 }
 
 .hero-btn--primary {
-    background-color: var(--tertiary-color);
-    border-color: var(--tertiary-color);
+    background-color: var(--tertiary-ink);
+    border-color: var(--tertiary-ink);
     color: var(--background-color);
 }
 
@@ -905,7 +910,7 @@ html {
 
 .hero-about__eyebrow {
     margin: 0 0 8px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-bright);
     font-family: "Raleway", sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1085,7 +1090,7 @@ h3 {
     margin-top: 2px !important;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-size: 0.92rem;
 }
 
@@ -1554,7 +1559,7 @@ footer h3 {
 
 .project-metadata-item dt {
     margin-bottom: 7px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
@@ -1611,7 +1616,7 @@ footer h3 {
 
 .project-kicker {
     margin: 0 0 12px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
@@ -1679,7 +1684,7 @@ footer h3 {
 .project-story-item h3,
 .project-story-item h4 {
     margin: 0 0 10px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-size: 1.25rem;
 }
@@ -1838,7 +1843,7 @@ button:hover {
 /* ensure button itself does not introduce extra offset */
 .more-work-btn {
     color: var(--background-color);
-    background-color: var(--tertiary-color);
+    background-color: var(--tertiary-ink);
     padding: 10px;
     border-radius: 4px;
     font-weight: bold;
@@ -1864,7 +1869,7 @@ button:hover {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
@@ -1890,7 +1895,7 @@ button:hover {
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    background-color: var(--tertiary-color);
+    background-color: var(--tertiary-ink);
     color: var(--background-color);
     font-family: "Raleway", sans-serif;
     font-weight: 700;
@@ -1926,7 +1931,7 @@ button:hover {
 .project-nav-link span {
     display: block;
     margin-bottom: 4px;
-    color: var(--tertiary-color);
+    color: var(--tertiary-ink);
     font-family: "Raleway", sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
