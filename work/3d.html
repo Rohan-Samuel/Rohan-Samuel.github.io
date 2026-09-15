@@ -19,70 +19,6 @@
     <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
 
     <style>
-        /* ============= Depth Frame (decorative background) ============= */
-        .depth-frame {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            overflow: hidden;
-            background: linear-gradient(180deg, #14161c 0%, #1b1e27 45%, #14161c 100%);
-            pointer-events: none;
-        }
-
-        .depth-frame__side {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 22vw;
-        }
-
-        .depth-frame__side--left {
-            left: 0;
-        }
-
-        .depth-frame__side--right {
-            right: 0;
-        }
-
-        .depth-frame__img {
-            position: absolute;
-            left: 50%;
-            aspect-ratio: 1;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-        }
-
-        .depth-frame__img--back {
-            width: 50%;
-            top: 10%;
-            transform: translateX(-50%) scale(0.92);
-            filter: brightness(0.3) saturate(0.55) blur(3px);
-            opacity: 0.5;
-        }
-
-        .depth-frame__img--mid {
-            width: 66%;
-            top: 40%;
-            transform: translateX(-50%);
-            filter: brightness(0.42) saturate(0.65) blur(1.5px);
-            opacity: 0.7;
-        }
-
-        .depth-frame__img--front {
-            width: 82%;
-            top: 68%;
-            transform: translateX(-50%);
-            filter: brightness(0.55) saturate(0.75);
-            opacity: 0.9;
-        }
-
-        @media (max-width: 900px) {
-            .depth-frame {
-                display: none;
-            }
-        }
-
         /* ============= 3D Gallery ============= */
         .gallery-3d {
             display: grid;
@@ -350,19 +286,6 @@
 </head>
 
 <body>
-    <div class="depth-frame" aria-hidden="true">
-        <div class="depth-frame__side depth-frame__side--left">
-            <img class="depth-frame__img depth-frame__img--back" src="../img/ship1.jpg" alt="">
-            <img class="depth-frame__img depth-frame__img--mid" src="../img/Mjolnir1.jpg" alt="">
-            <img class="depth-frame__img depth-frame__img--front" src="../img/robocube_sentry_face.jpg" alt="">
-        </div>
-        <div class="depth-frame__side depth-frame__side--right">
-            <img class="depth-frame__img depth-frame__img--back" src="../img/turret5.jpg" alt="">
-            <img class="depth-frame__img depth-frame__img--mid" src="../img/robo1.jpg" alt="">
-            <img class="depth-frame__img depth-frame__img--front" src="../img/turret_wireframe.jpg" alt="">
-        </div>
-    </div>
-
     {% include nav.html %}
 
     {% include hero.html title="Check out my 3D assets" %}
