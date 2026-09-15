@@ -26,6 +26,15 @@
             pointer-events: none;
         }
 
+        /* footer[data-molten-cracks] is position:relative with no z-index of
+           its own, so it never forms a real stacking context and its
+           molten-cracks canvas (z-index:-1 inside it) escapes straight to
+           the root, landing behind our fixed depth-frame. Giving it an
+           explicit z-index promotes the whole footer above the frame. */
+        footer[data-molten-cracks] {
+            z-index: 0;
+        }
+
         .depth-frame__side {
             position: absolute;
             top: 0;
@@ -115,7 +124,6 @@
             top: 50%;
             right: 7vw;
             transform: translate(50%, -50%);
-            z-index: 500;
             display: flex;
             align-items: center;
             gap: 8px;
