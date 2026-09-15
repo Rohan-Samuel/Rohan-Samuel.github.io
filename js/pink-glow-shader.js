@@ -38,8 +38,10 @@
         spot.style.marginTop = -opts.size / 2 + "px";
         spot.style.borderRadius = "50%";
         spot.style.background =
-            "radial-gradient(circle, rgba(" + opts.color + ", " + opts.intensity + ") 0%, rgba(" +
-            opts.color + ", " + (opts.intensity * 0.35) + ") 35%, rgba(" + opts.color + ", 0) 70%)";
+            "radial-gradient(circle, rgba(255, 255, 255, " + Math.min(opts.intensity * 1.15, 1) + ") 0%, rgba(" +
+            opts.color + ", " + opts.intensity + ") 14%, rgba(" +
+            opts.color + ", " + (opts.intensity * 0.45) + ") 40%, rgba(" + opts.color + ", 0) 72%)";
+        spot.style.mixBlendMode = "screen";
         spot.style.zIndex = "5";
         spot.style.pointerEvents = "none";
         spot.style.opacity = "0";
