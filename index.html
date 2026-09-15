@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan Samuel — Unity & XR Developer</title>
-    <meta name="description" content="Portfolio of Rohan Samuel, a Unity developer and XR/interaction designer blending programming, visual design, and audio production.">
+    {% include head-meta.html
+       title="Rohan Samuel — Unity & XR Developer"
+       description="Portfolio of Rohan Samuel, a Unity developer and XR/interaction designer blending programming, visual design, and audio production."
+       image="/img/og-default.jpg"
+       url="/index.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <!--CSS Links-->
     <link rel="stylesheet" href="css/styles.css?v={{ site.time | date: '%s' }}">
@@ -33,7 +36,7 @@
             <div class="project-container">
                 <div class="project">
                     <a href="projects/robocube.html">
-                        <img src="img/robocube_square.jpg" alt="RoboCube project preview">
+                        <img src="img/robocube_square.jpg" alt="RoboCube project preview" width="520" height="520" fetchpriority="high">
                         <div class="overlay">
                             <h3>RoboCube</h3>
                         </div>
@@ -48,7 +51,7 @@
             <div class="project-container">
                 <div class="project">
                     <a href="projects/harmony.html">
-                        <img src="img/harmonysquare3.jpg" alt="Harmony VR project preview">
+                        <img src="img/harmonysquare3.jpg" alt="Harmony VR project preview" width="347" height="347" loading="lazy" decoding="async">
                         <div class="overlay">
                             <h3>Harmony</h3>
                         </div>
@@ -64,7 +67,7 @@
                 <div class="project">
 
                     <a href="projects/invasive.html">
-                        <img src="img/invasivesquare.jpg" alt="Invasive project preview">
+                        <img src="img/invasivesquare.jpg" alt="Invasive project preview" width="1056" height="1056" loading="lazy" decoding="async">
                         <div class="overlay">
                             <h3>Invasive</h3>
                         </div>
@@ -97,7 +100,7 @@
             <a href="https://drive.google.com/file/d/1cjJ4IAe_77UbDBGS1QehJ5MF9i14lZ7J/view"
                 target="_blank" rel="noopener noreferrer">
                 <div class="image-container">
-                    <img src="img/res1.png?v={{ site.time | date: '%s' }}" alt="Rohan Samuel resume preview">
+                    <img src="img/res1.png?v={{ site.time | date: '%s' }}" alt="Rohan Samuel resume preview" loading="lazy" decoding="async">
                     <div class="overlay">
                         <h3>View</h3>
                     </div>

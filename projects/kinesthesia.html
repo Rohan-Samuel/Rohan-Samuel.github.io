@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinesthesia — Unity + computer vision instrument | Rohan Samuel</title>
-    <meta name="description" content="Kinesthesia, a body-interface project using computer vision to turn movement into interaction.">
+    {% include head-meta.html
+       title="Kinesthesia — Unity + computer vision instrument | Rohan Samuel"
+       description="Kinesthesia, a body-interface project using computer vision to turn movement into interaction."
+       image="/img/og-kinesthesia.jpg"
+       url="/projects/kinesthesia.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="../css/fonts.css">
@@ -29,7 +32,7 @@
             <section class="project project-feature">
                 <div class="project-content project-feature-content">
                     <div class="project-info">
-                        <img src="../img/kin1.jpg" alt="Kinesthesia interactive scene with a participant">
+                        <img src="../img/kin1.jpg" alt="Kinesthesia interactive scene with a participant" width="1500" height="1000" fetchpriority="high">
                         <div class="text-overlay">
                             <h3>Embodied Interaction</h3>
                         </div>
@@ -111,27 +114,27 @@
                     <h3 id="kinesthesia-story-title">The Story Behind Kinesthesia</h3>
                     <div class="project-story-grid project-story-grid--photo">
                         <article class="project-story-item">
-                            <img src="../img/kin_world.jpg" alt="The Kinesthesia world with idle squares floating over a purple particle-lit landscape">
+                            <img src="../img/kin_world.jpg" alt="The Kinesthesia world with idle squares floating over a purple particle-lit landscape" width="608" height="405" loading="lazy" decoding="async">
                             <h4>Concept</h4>
                             <p>The brief was open to interpretation, with one requirement: build an interactive system that a person operates with their body. Our team of three took that toward music, paired with particle visuals, and spent about a month on it.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/kin2.jpg" alt="Player standing with arms out to the sides while the hand and foot squares light up on screen">
+                            <img src="../img/kin2.jpg" alt="Player standing with arms out to the sides while the hand and foot squares light up on screen" width="1500" height="1000" loading="lazy" decoding="async">
                             <h4>How It Works</h4>
                             <p>A webcam tracks the player, whose body is reflected back as a digital mirror on screen. Six squares float in that scene: one at floor level for each foot, one at mid-height for each hand, and one higher up for each raised hand. There is no square dedicated to the head, though the head can trigger the higher ones. Each square plays a different instrument, and moving the limb around inside a square changes the effects applied to it: reverb, chorus and delay.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/kin3.jpg" alt="Player raising one arm overhead, lighting the upper square on screen">
+                            <img src="../img/kin3.jpg" alt="Player raising one arm overhead, lighting the upper square on screen" width="1500" height="1000" loading="lazy" decoding="async">
                             <h4>The Audio Approach</h4>
                             <p>The setup is similar to <a href="harmony.html">Harmony</a>, but built around a mostly constant four-bar loop rather than an arrangement the player assembles. The loop stays put, so what a player shapes is the texture on top of it. Position inside a square is read in Unity and drives a slider that adds more or less of a specified effect, which is what puts the effects under the player's control rather than on a preset.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/kin_square_detail.jpg" alt="Close view of two lit squares with glowing particles drifting inside them">
+                            <img src="../img/kin_square_detail.jpg" alt="Close view of two lit squares with glowing particles drifting inside them" width="1500" height="1000" loading="lazy" decoding="async">
                             <h4>The Challenge</h4>
                             <p>The hard part was making that in-square effect change both controllable and noticeable at once. It kept landing on one side or the other: either too sensitive to steer, or so subtle it became an afterthought. Finding the balance came down to picking the right effects, ones with enough audible character to register, and a lot of trial and error on the tuning.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/kin1.jpg" alt="Player standing with both feet in the lit floor squares during the showcase performance">
+                            <img src="../img/kin1.jpg" alt="Player standing with both feet in the lit floor squares during the showcase performance" width="1500" height="1000" loading="lazy" decoding="async">
                             <h4>Reception</h4>
                             <p>I performed it in front of my class at our showcase. Sharing music I had made through such a different form of presentation felt great, and the audience, my classmates, seemed genuinely impressed by the concept. Several of them told me afterwards that ours was one of the more memorable projects.</p>
                         </article>

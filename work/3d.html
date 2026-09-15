@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Work | Rohan Samuel</title>
-    <meta name="description" content="3D art and asset work by Rohan Samuel.">
+    {% include head-meta.html
+       title="3D Work | Rohan Samuel"
+       description="3D art and asset work by Rohan Samuel."
+       image="/img/og-robocube.jpg"
+       url="/work/3d.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="../css/fonts.css">
@@ -416,6 +419,8 @@
             item.setAttribute("aria-label", "View " + project.title);
 
             const img = document.createElement("img");
+            img.loading = "lazy";
+            img.decoding = "async";
             img.src = itemThumbSrc(project.images[0]);
             img.alt = project.title + " preview";
             item.appendChild(img);
@@ -509,6 +514,8 @@
                 wrapper.className = "lightbox-3d__strip-item" + (isVideoItem(entry) ? " is-video" : "");
 
                 const thumb = document.createElement("img");
+                thumb.loading = "lazy";
+                thumb.decoding = "async";
                 thumb.src = itemThumbSrc(entry);
                 thumb.alt = isVideoItem(entry)
                     ? currentProject.title + " " + (entry.alt || "animation")

@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invasive — Unity stealth game, lead programmer | Rohan Samuel</title>
-    <meta name="description" content="Invasive, a short Unity horror game where players explore an abandoned lab overrun by plant monsters.">
+    {% include head-meta.html
+       title="Invasive — Unity stealth game, lead programmer | Rohan Samuel"
+       description="Invasive, a short Unity horror game where players explore an abandoned lab overrun by plant monsters."
+       image="/img/og-invasive.jpg"
+       url="/projects/invasive.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="../css/fonts.css">
@@ -31,7 +34,7 @@
                 <div class="project-content project-feature-content">
                     <div class="project-info">
                         <img src="../img/invasivetitle.jpg"
-                            alt="A plant monster ahead in a dark research station corridor, with the player's oxygen gauge showing in the corner">
+                            alt="A plant monster ahead in a dark research station corridor, with the player's oxygen gauge showing in the corner" width="1831" height="1056" fetchpriority="high">
                         <div class="text-overlay">
                             <h3>Unity 3D Game</h3>
                         </div>
@@ -123,27 +126,27 @@
                     <h3 id="invasive-story-title">The Story Behind Invasive</h3>
                     <div class="project-story-grid">
                         <article class="project-story-item">
-                            <img src="../img/invasive_arrival.jpg" alt="The player character walks down a dark station corridor toward a lit doorway, flanked by two figures ahead">
+                            <img src="../img/invasive_arrival.jpg" alt="The player character walks down a dark station corridor toward a lit doorway, flanked by two figures ahead" width="1815" height="1540" loading="lazy" decoding="async">
                             <h4>Concept</h4>
                             <p>We settled on horror because it is good practice for building atmosphere and for playing with the player's experience inside an environment. Beyond that we kept the constraints loose, since this was the first 3D game for most of the team. The plant monsters came out of a shared interest in sci-fi horror, and they gave us something to hang the oxygen mechanic on.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/invasive_terminal.jpg" alt="A wired control panel with a glowing screen and two green indicator lights, part of one of the station's item-and-switch puzzles">
+                            <img src="../img/invasive_terminal.jpg" alt="A wired control panel with a glowing screen and two green indicator lights, part of one of the station's item-and-switch puzzles" width="1815" height="1540" loading="lazy" decoding="async">
                             <h4>How It Works</h4>
                             <p>You arrive at a research station on another planet looking for your spouse, and you lose oxygen anywhere in the station unless you are near a supply. There are only two kinds of supply: the tanks at checkpoints, and the plant-based monsters themselves. That is the whole tension of the game: staying alive means deliberately walking toward the things that can kill you. There is no combat at all. You drain oxygen by sneaking close to an enemy, oxygen hitting zero is instant death, and progress is gated by puzzles built from items, buttons and doors you have to work out.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/invasive_creature.jpg" alt="A large venus flytrap-like plant monster with glowing yellow eyes bares its teeth in the dark">
+                            <img src="../img/invasive_creature.jpg" alt="A large venus flytrap-like plant monster with glowing yellow eyes bares its teeth in the dark" width="1815" height="1540" loading="lazy" decoding="async">
                             <h4>The Stealth System</h4>
                             <p>Enemies detect the player by vision cone or by sound, and once you are spotted they give chase. Contact is not uniformly fatal: depending on the enemy, being touched either kills you outright or makes your oxygen drain faster. Sound cuts both ways, though, since part of learning the game is learning to use noise deliberately, distracting enemies to get through certain puzzles. The thing that gives you away is also a tool.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/invasive_beaker.jpg" alt="The player winds up to throw a glowing beaker down a dark corridor to distract an enemy">
+                            <img src="../img/invasive_beaker.jpg" alt="The player winds up to throw a glowing beaker down a dark corridor to distract an enemy" width="1815" height="1540" loading="lazy" decoding="async">
                             <h4>The Challenge</h4>
                             <p>The hard part was getting everything to work together. The team was new to game development, so version control was a running problem: one person's changes could break the game for everyone else. Assets also arrived less finished than they needed to be, and integrating them fell to me: wiring in the sounds we had found, getting the right animations firing on the right models, making the pieces behave as one game. In practice it came down to two of us absorbing that work and fixing what we could.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/invasive_reception.jpg" alt="A plant monster looms over wooden crates in a dim storage area, lit by a green glow">
+                            <img src="../img/invasive_reception.jpg" alt="A plant monster looms over wooden crates in a dim storage area, lit by a green glow" width="1815" height="1540" loading="lazy" decoding="async">
                             <h4>Reception</h4>
                             <p>It was received well. For me the bigger thing was that this was my first 3D game project, and I was happy and grateful to end up with something that was actually a complete, playable game, where every mechanic in it was something I had built myself.</p>
                         </article>

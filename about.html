@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Rohan Samuel, Unity & XR Developer</title>
-    <meta name="description" content="About Rohan Samuel, an XR developer and SFU SIAT graduate building VR installations, games, and interactive media.">
+    {% include head-meta.html
+       title="About — Rohan Samuel, Unity & XR Developer"
+       description="About Rohan Samuel, an XR developer and SFU SIAT graduate building VR installations, games, and interactive media."
+       image="/img/og-default.jpg"
+       url="/about.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="css/styles.css?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="css/fonts.css">
@@ -57,7 +60,7 @@
             <a href="https://drive.google.com/file/d/1cjJ4IAe_77UbDBGS1QehJ5MF9i14lZ7J/view"
                 target="_blank" rel="noopener noreferrer">
                 <div class="image-container">
-                    <img src="{{ '/img/res1.png' | relative_url }}?v={{ site.time | date: '%s' }}" alt="Rohan Samuel resume preview">
+                    <img src="{{ '/img/res1.png' | relative_url }}?v={{ site.time | date: '%s' }}" alt="Rohan Samuel resume preview" width="816" height="264" fetchpriority="high">
                     <div class="overlay">
                         <h3>View</h3>
                     </div>

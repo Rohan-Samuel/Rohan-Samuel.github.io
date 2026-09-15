@@ -1,0 +1,30 @@
+{%- comment -%}
+Shared title, description and social-card metadata.
+
+Call it from a page's <head> with four named parameters: title, description,
+image and url. See any page in projects/ for the exact form. The example is not
+written out here, because an include that names itself would recurse.
+
+image and url are optional; without them the page falls back to the site-wide
+card and its own path.
+{%- endcomment -%}
+{%- assign meta_title = include.title | default: "Rohan Samuel — Unity & XR Developer" -%}
+{%- assign meta_desc = include.description | default: "Portfolio of Rohan Samuel, a Unity developer and XR/interaction designer blending programming, visual design, and audio production." -%}
+{%- assign meta_image = include.image | default: "/img/og-default.jpg" -%}
+{%- assign meta_url = include.url | default: page.url -%}
+{%- assign meta_base = "https://rohan-samuel.github.io" -%}
+<title>{{ meta_title }}</title>
+<meta name="description" content="{{ meta_desc }}">
+<link rel="canonical" href="{{ meta_base }}{{ meta_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rohan Samuel">
+<meta property="og:title" content="{{ meta_title }}">
+<meta property="og:description" content="{{ meta_desc }}">
+<meta property="og:image" content="{{ meta_base }}{{ meta_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="{{ meta_base }}{{ meta_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ meta_title }}">
+<meta name="twitter:description" content="{{ meta_desc }}">
+<meta name="twitter:image" content="{{ meta_base }}{{ meta_image }}">

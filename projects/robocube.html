@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoboCube — solo Unity soulslike | Rohan Samuel</title>
-    <meta name="description" content="RoboCube, a solo-developed Unity soulslike action-adventure with a custom combat, stat, and weapon system.">
+    {% include head-meta.html
+       title="RoboCube — solo Unity soulslike | Rohan Samuel"
+       description="RoboCube, a solo-developed Unity soulslike action-adventure with a custom combat, stat, and weapon system."
+       image="/img/og-robocube.jpg"
+       url="/projects/robocube.html" %}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/styles.css?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="../css/fonts.css">
@@ -29,7 +32,7 @@
             <section class="project project-feature">
                 <div class="project-content project-feature-content">
                     <div class="project-info">
-                        <img src="../img/robocube_hero.jpg" alt="RoboCube's player character, a glowing-eyed robot, lit against a dark background">
+                        <img src="../img/robocube_hero.jpg" alt="RoboCube's player character, a glowing-eyed robot, lit against a dark background" width="1464" height="519" fetchpriority="high">
                         <div class="text-overlay">
                             <h3>Unity 3D Game</h3>
                         </div>
@@ -105,14 +108,14 @@
                     <h3 id="robocube-story-title">The Story Behind RoboCube</h3>
                     <div class="project-story-grid">
                         <article class="project-story-item">
-                            <img src="../img/robocube_scene.jpg" alt="Blockout level in the Unity editor with the player robot and an enemy bot">
+                            <img src="../img/robocube_scene.jpg" alt="Blockout level in the Unity editor with the player robot and an enemy bot" width="1775" height="983" loading="lazy" decoding="async">
                             <h4>Concept</h4>
                             <p>RoboCube is a solo soulslike action-adventure I started in August 2025 as a full-stack
                                 portfolio piece, every system is my own code, and every asset, starting with the
                                 player character, is modeled, textured, and animated by me.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/robocube_turret.jpg" alt="The RoboCube player character in-engine, turret raised and aimed">
+                            <img src="../img/robocube_turret.jpg" alt="The RoboCube player character in-engine, turret raised and aimed" width="1733" height="985" loading="lazy" decoding="async">
                             <h4>How It Works</h4>
                             <p>The playable core is third-person movement and camera, a stat system driving health and
                                 abilities, and an overheat mechanic that limits how long a player can stay aggressive
@@ -122,7 +125,7 @@
                                 code.</p>
                         </article>
                         <article class="project-story-item">
-                            <img src="../img/robocube_signallost.jpg" alt="The RoboCube player robot with a &ldquo;SIGNAL LOST&rdquo; game-over screen">
+                            <img src="../img/robocube_signallost.jpg" alt="The RoboCube player robot with a &ldquo;SIGNAL LOST&rdquo; game-over screen" width="1809" height="1035" loading="lazy" decoding="async">
                             <h4>What's Next</h4>
                             <p>Currently building enemy lock-on and damage resolution, with more weapons and enemy
                                 types to follow. More screenshots and a build will go up as the game progresses.</p>
