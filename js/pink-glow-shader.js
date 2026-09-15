@@ -50,9 +50,19 @@
             if (typeof opts[k] === "string") opts[k] = parseFloat(opts[k]);
         }
 
-        const trail = createGlowEl(opts.size * 0.75, opts.color, opts.intensity * 0.4);
+        // Trailing echoes, each smaller/dimmer and lagging more than the last.
+        const TRAIL_STEPS = [
+            { sizeMul: 0.55, intensityMul: 0.32, lagMul: 3.2 },
+            { sizeMul: 0.36, intensityMul: 0.2, lagMul: 5.5 },
+            { sizeMul: 0.22, intensityMul: 0.12, lagMul: 8.5 },
+        ];
+        const trails = TRAIL_STEPS.map((t) => ({
+            el: createGlowEl(opts.size * t.sizeMul, opts.color, opts.intensity * t.intensityMul),
+            pos: { x: 0, y: 0 },
+            lagMul: t.lagMul,
+        }));
+        trails.forEach((t) => host.appendChild(t.el));
         const spot = createGlowEl(opts.size, opts.color, opts.intensity);
-        host.appendChild(trail);
         host.appendChild(spot);
 
         const computed = getComputedStyle(host);
@@ -60,7 +70,6 @@
 
         const ptr = { x: 0, y: 0, has: false };
         const cur = { x: 0, y: 0 };
-        const trailPos = { x: 0, y: 0 };
         let presence = 0;
         let raf = 0;
         let last = performance.now();
@@ -74,18 +83,23 @@
             cur.x += (ptr.x - cur.x) * k;
             cur.y += (ptr.y - cur.y) * k;
 
-            const kTrail = 1 - Math.exp(-(opts.damping / 100) * 4.5 * dt);
-            trailPos.x += (cur.x - trailPos.x) * kTrail;
-            trailPos.y += (cur.y - trailPos.y) * kTrail;
-
             const target = ptr.has ? 1 : 0;
             const pk = 1 - Math.exp(-(opts.fade / 10) * dt);
             presence += (target - presence) * pk;
 
             spot.style.transform = "translate(" + cur.x + "px, " + cur.y + "px)";
             spot.style.opacity = String(presence);
-            trail.style.transform = "translate(" + trailPos.x + "px, " + trailPos.y + "px)";
-            trail.style.opacity = String(presence);
+
+            let leadX = cur.x, leadY = cur.y;
+            trails.forEach((t) => {
+                const kTrail = 1 - Math.exp(-(opts.damping / 100) * t.lagMul * dt);
+                t.pos.x += (leadX - t.pos.x) * kTrail;
+                t.pos.y += (leadY - t.pos.y) * kTrail;
+                t.el.style.transform = "translate(" + t.pos.x + "px, " + t.pos.y + "px)";
+                t.el.style.opacity = String(presence);
+                leadX = t.pos.x;
+                leadY = t.pos.y;
+            });
         };
         raf = requestAnimationFrame(frame);
 
@@ -94,7 +108,10 @@
             const scale = r.width > 0 ? host.clientWidth / r.width : 1;
             ptr.x = (e.clientX - r.left) * scale;
             ptr.y = (e.clientY - r.top) * scale;
-            if (!ptr.has) { cur.x = ptr.x; cur.y = ptr.y; trailPos.x = ptr.x; trailPos.y = ptr.y; }
+            if (!ptr.has) {
+                cur.x = ptr.x; cur.y = ptr.y;
+                trails.forEach((t) => { t.pos.x = ptr.x; t.pos.y = ptr.y; });
+            }
             ptr.has = true;
         };
         const onLeave = () => { ptr.has = false; };
