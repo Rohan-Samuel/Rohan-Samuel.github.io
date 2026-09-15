@@ -1,0 +1,51 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include head-meta.html
+       title="Page not found — Rohan Samuel"
+       description="That page doesn't exist. Head back to the portfolio homepage."
+       image="/img/og-default.jpg"
+       url="/404.html" %}
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%23252A34'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Arial,sans-serif'%20font-size='15'%20font-weight='700'%20fill='%23FF2E63'%20text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E">
+    {% comment %}
+    Absolute paths, not relative ones: GitHub Pages serves this file for any bad
+    URL, so a visitor hitting /projects/typo would otherwise pull the stylesheet
+    from /projects/css/ and get an unstyled page.
+    {% endcomment %}
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="stylesheet" href="{{ '/css/fonts.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {% include nav.html %}
+
+    {% include hero.html title="Page not found" %}
+
+    <section class="notfound">
+        <div class="container">
+            <p class="notfound-code">Error 404</p>
+            <p class="notfound-lede">That page isn't here. It may have moved, or the link that brought you
+                might have lost its tail somewhere along the way.</p>
+            <div class="notfound-cta">
+                <a class="project-cta-btn" href="{{ '/index.html' | relative_url }}">Back to the homepage</a>
+            </div>
+            <p class="notfound-alt">Looking for something specific? The
+                <a href="{{ '/work/all.html' | relative_url }}#project-gallery">work gallery</a> has every project,
+                or <a href="{{ '/contact.html' | relative_url }}">get in touch</a> and I'll point you at it.</p>
+        </div>
+    </section>
+
+    {% include footer.html %}
+</body>
+
+</html>

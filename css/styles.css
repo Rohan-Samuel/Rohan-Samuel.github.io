@@ -588,6 +588,55 @@ html {
     color: var(--secondary-color);
 }
 
+/* 404. GitHub Pages serves this for any bad URL, so it has to stand on its own
+   without the context of whatever page the visitor thought they were opening. */
+.notfound {
+    padding: 64px 0 80px;
+}
+
+.notfound-code {
+    margin: 0 0 10px;
+    color: var(--tertiary-ink);
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.notfound-lede {
+    max-width: 52ch;
+    margin: 0 0 30px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.notfound-cta {
+    margin-bottom: 30px;
+}
+
+.notfound-alt {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--secondary-color);
+    line-height: 1.7;
+}
+
+.notfound-alt a {
+    color: var(--tertiary-ink);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+    .notfound {
+        padding: 44px 0 56px;
+    }
+    .notfound-lede {
+        font-size: 1.05rem;
+    }
+}
+
 .resume-section__note {
     max-width: 60ch;
     margin: -6px auto 18px;
