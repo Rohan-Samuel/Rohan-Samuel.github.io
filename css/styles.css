@@ -541,7 +541,8 @@ html {
     border-radius: 10px;
 }
 
-.contact-group h3 {
+.contact-group h3,
+.contact-group h2 {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -550,7 +551,8 @@ html {
     color: var(--secondary-color);
 }
 
-.contact-group h3 i {
+.contact-group h3 i,
+.contact-group h2 i {
     color: var(--tertiary-color);
 }
 
@@ -1081,7 +1083,8 @@ html {
     display: block;
 }
 
-.about-beyond__item h4 {
+.about-beyond__item h4,
+.about-beyond__item h3 {
     margin: 0 0 6px;
     font-size: 1rem;
 }
@@ -1306,7 +1309,8 @@ h3 {
     object-fit: contain;
     margin: 0 auto 8px;
 }
-.skills__primary .skill h3 {
+.skills__primary .skill h3,
+.skills__primary .skill h4 {
     margin: 10px;
     font-size: 1.5rem;
     font-weight: 700;
@@ -1340,6 +1344,24 @@ h3 {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-color);
+}
+
+/* WCAG 2.2 (2.5.8) sets a 24x24 floor for standalone targets. Links inside a
+   sentence are exempt, so this covers only the list and navigation ones, which
+   were measuring 16-23px tall. The extra height is hit area, not visible change. */
+.contact-group li a,
+.hero-home__links li a,
+.project-metadata-links dd a,
+.project-back-link a,
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding-block: 3px;
+}
+
+.about-resume {
+    margin: 4px 0 22px;
 }
 
 /* ============= Resume Section =============== */
@@ -1498,9 +1520,11 @@ footer h3 {
     color: #fff;
 }
 
-.text-overlay h3 {
+.text-overlay h3,
+.text-overlay__label {
     margin: 0;
     font-size: 18px;
+    font-weight: 700;
 }
 
 .text-overlay p {

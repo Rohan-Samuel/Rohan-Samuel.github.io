@@ -300,7 +300,8 @@
         </div>
     </div>
 
-    <div class="lightbox-3d" id="lightbox-3d">
+    <div class="lightbox-3d" id="lightbox-3d" role="dialog" aria-modal="true"
+        aria-labelledby="lightbox-3d-title" tabindex="-1">
         <div class="lightbox-3d__content" id="lightbox-3d-content">
             <button type="button" class="lightbox-3d__close" id="lightbox-3d-close">&larr; Back</button>
             <h3 class="lightbox-3d__title" id="lightbox-3d-title"></h3>
@@ -568,7 +569,17 @@
             }
         }
 
+        // The element that opened the dialog, so focus can go back where it started.
+        let lightboxOpener = null;
+
+        function focusablesInLightbox() {
+            return [...lightboxEl.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+                .filter((el) => el.offsetParent !== null || el === document.activeElement);
+        }
+
         function openLightbox(projectIndex) {
+            lightboxOpener = document.activeElement;
             currentProject = projects3d[projectIndex];
             currentIndex = 0;
             lightboxTitleEl.textContent = currentProject.title;
@@ -576,6 +587,9 @@
             showImage(0);
             lightboxEl.classList.add("is-open");
             document.body.style.overflow = "hidden";
+            // Focus has to move inside, or a keyboard user is left tabbing through
+            // the page behind an overlay they cannot see.
+            lightboxCloseEl.focus();
         }
 
         function closeLightbox() {
@@ -583,6 +597,10 @@
             document.body.style.overflow = "";
             lightboxMainVideoEl.pause();
             currentProject = null;
+            if (lightboxOpener && document.contains(lightboxOpener)) {
+                lightboxOpener.focus();
+            }
+            lightboxOpener = null;
         }
 
         renderGallery();
@@ -602,6 +620,22 @@
             if (event.key === "Escape") closeLightbox();
             if (event.key === "ArrowRight") showImage(currentIndex + 1);
             if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+            if (event.key !== "Tab") return;
+
+            const items = focusablesInLightbox();
+            if (!items.length) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (!lightboxEl.contains(document.activeElement)) {
+                event.preventDefault();
+                (event.shiftKey ? last : first).focus();
+            } else if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
         });
 
         lightboxContentEl.addEventListener("wheel", (event) => {
