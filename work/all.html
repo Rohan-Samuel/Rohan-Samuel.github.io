@@ -113,15 +113,16 @@
         .floating-3d-btn {
             position: fixed;
             top: 50%;
-            right: 24px;
-            transform: translateY(-50%);
+            right: 7vw;
+            transform: translate(50%, -50%);
             z-index: 500;
             display: flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--tertiary-ink);
-            color: var(--background-color);
-            padding: 14px 20px;
+            background-color: #1b1e27;
+            color: var(--tertiary-ink);
+            border: 2px solid var(--tertiary-ink);
+            padding: 12px 18px;
             border-radius: 999px;
             font-weight: bold;
             text-decoration: none;
@@ -131,13 +132,24 @@
         }
 
         .floating-3d-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            transform: translateY(-50%) scale(1.05);
+            background-color: var(--tertiary-ink);
+            color: var(--background-color);
+            transform: translate(50%, -50%) scale(1.05);
         }
 
         .floating-3d-btn i {
             font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .floating-3d-btn {
+                right: 16px;
+                transform: translateY(-50%);
+            }
+
+            .floating-3d-btn:hover {
+                transform: translateY(-50%) scale(1.05);
+            }
         }
 
         @media (max-width: 600px) {
@@ -147,7 +159,6 @@
 
             .floating-3d-btn {
                 padding: 14px;
-                right: 16px;
             }
         }
     </style>
