@@ -108,6 +108,48 @@
                 display: none;
             }
         }
+
+        /* ============= Floating 3D Gallery button ============= */
+        .floating-3d-btn {
+            position: fixed;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--tertiary-ink);
+            color: var(--background-color);
+            padding: 14px 20px;
+            border-radius: 999px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .floating-3d-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .floating-3d-btn i {
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .floating-3d-btn span {
+                display: none;
+            }
+
+            .floating-3d-btn {
+                padding: 14px;
+                right: 16px;
+            }
+        }
     </style>
 
 </head>
@@ -137,6 +179,11 @@
             <img class="depth-frame__img depth-frame__img--d4" src="../img/ship1.jpg" alt="" style="top: 89%; transform: translateX(calc(-50% + 9px)) rotate(-4deg);">
         </div>
     </div>
+
+    <a href="3d.html" class="floating-3d-btn">
+        <i class="fa-solid fa-cube" aria-hidden="true"></i>
+        <span>3D Gallery</span>
+    </a>
 
     {% include nav.html %}
 
