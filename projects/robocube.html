@@ -43,7 +43,6 @@
                         <p>A solo soulslike action-adventure, every system and every asset built end to end by one
                             person. Currently in development.</p>
                         <div class="project-cta">
-                            <a href="https://youtu.be/V6h2Ct0Dcvs" class="project-cta-btn" target="_blank" rel="noopener">Watch progress footage</a>
                             <a href="https://github.com/Rohan-Samuel/RoboCube" class="project-cta-btn" target="_blank" rel="noopener">View the code</a>
                         </div>
                     </div>
@@ -98,10 +97,20 @@
                 <div class="additional-images project-media">
                     <h3 class="project-media-title">Watch RoboCube in motion</h3>
                     <div class="image">
-                        <h3>Progress footage</h3>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/V6h2Ct0Dcvs" frameborder="0"
-                            allowfullscreen></iframe>
-                        <p>In-editor look at the turret targeting and animation blending in development.</p>
+                        <h3>Gameplay</h3>
+                        <video src="../vid/RoboCubeGameplay.mp4" poster="../img/robocube_gameplay_poster.jpg"
+                            width="1280" height="720" data-loop autoplay muted loop playsinline preload="metadata"
+                            aria-label="The player robot firing its turret at an enemy bot while the overheat bar fills and then decays"></video>
+                        <p>The turret tracks an enemy while the heat bar fills, then decays once fire stops. Staying
+                            aggressive costs heat, and heat is what forces a player to back off.</p>
+                    </div>
+                    <div class="image">
+                        <h3>Character animation</h3>
+                        <video src="../vid/RoboCubeWalkCycle.mp4" poster="../img/robocube_walkcycle_poster.jpg"
+                            width="1280" height="720" data-loop autoplay muted loop playsinline preload="metadata"
+                            aria-label="The RoboCube sentry walking on four legs, shown in the animation rig"></video>
+                        <p>The walk cycle on the rig. I modeled, textured, rigged, and animated this character myself,
+                            and plan to do the same for every asset in the game.</p>
                     </div>
                 </div>
                 <section class="project-story" aria-labelledby="robocube-story-title">
@@ -152,6 +161,7 @@
 
 
     {% include footer.html %}
+    <script src="../js/loop-video.js" defer></script>
 </body>
 
 </html>

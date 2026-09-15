@@ -1696,13 +1696,25 @@ footer h3 {
 }
 
 .project-media {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Flex rather than a fixed 3-up grid: the heading spans the row, so grid
+       auto-fit could never collapse its empty tracks. Here a page carrying one or
+       two clips lets them grow into the full width instead of leaving a hole. */
+    display: flex;
+    flex-wrap: wrap;
     gap: 28px;
     margin-top: 12px;
 }
 
+.project-media > .image {
+    flex: 1 1 320px;
+    /* Capped so a page carrying a single clip gets a sensible embed rather than a
+       1100px one spanning the whole column. */
+    max-width: 600px;
+    min-width: 0;
+}
+
 .project-media-title {
+    flex: 1 0 100%;
     grid-column: 1 / -1;
     margin: 0;
     color: var(--secondary-color);
@@ -1726,11 +1738,43 @@ footer h3 {
     font-size: 1.2rem;
 }
 
-.project-media iframe {
+.project-media iframe,
+.project-media video {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
     margin: 0 0 16px;
+}
+
+.project-media video {
+    display: block;
+    background: #11131a;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Pause control for the looping clips, injected by js/loop-video.js. */
+.project-media .video-toggle {
+    align-self: flex-start;
+    margin: 0 0 14px;
+    padding: 7px 16px;
+    min-height: 36px;
+    background: transparent;
+    color: var(--tertiary-ink);
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.project-media .video-toggle:hover,
+.project-media .video-toggle:focus-visible {
+    background: var(--tertiary-ink);
+    color: #fff;
 }
 
 .project-media .image p {
