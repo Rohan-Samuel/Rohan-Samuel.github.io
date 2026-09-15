@@ -11,9 +11,9 @@
 (function () {
     const DEFAULTS = {
         color: "255, 46, 99",
-        size: 420,
-        intensity: 0.55,
-        damping: 30,
+        size: 160,
+        intensity: 0.68,
+        damping: 65,
         fade: 14,
     };
 
