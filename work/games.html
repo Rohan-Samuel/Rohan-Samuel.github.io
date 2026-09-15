@@ -18,9 +18,59 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
 
+    <style>
+        /* ============= Floating 3D Gallery button ============= */
+        .floating-3d-btn {
+            position: fixed;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1b1e27;
+            color: var(--tertiary-ink);
+            border: 2px solid var(--tertiary-ink);
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .floating-3d-btn:hover {
+            background-color: var(--tertiary-ink);
+            color: var(--background-color);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .floating-3d-btn i {
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .floating-3d-btn span {
+                display: none;
+            }
+
+            .floating-3d-btn {
+                padding: 14px;
+                right: 16px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
+    <a href="3d.html" class="floating-3d-btn">
+        <i class="fa-solid fa-cube" aria-hidden="true"></i>
+        <span>3D Gallery</span>
+    </a>
+
     {% include nav.html %}
 
     {% include hero.html title="Check out some of the games I've worked on!" %}
