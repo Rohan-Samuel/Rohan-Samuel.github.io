@@ -18,9 +18,115 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/fef65e84fa.js" crossorigin="anonymous"></script>
 
+    <style>
+        /* ============= Depth Frame (decorative background) ============= */
+        .depth-frame {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(180deg, #14161c 0%, #1b1e27 45%, #14161c 100%);
+            pointer-events: none;
+        }
+
+        .depth-frame__side {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 22vw;
+        }
+
+        .depth-frame__side--left {
+            left: 0;
+        }
+
+        .depth-frame__side--right {
+            right: 0;
+        }
+
+        .depth-frame__img {
+            position: absolute;
+            left: 50%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+        }
+
+        /* l1 = farthest into the distance, l7 = nearest */
+        .depth-frame__img--l1 {
+            width: 20%;
+            filter: brightness(0.16) saturate(0.4) blur(8px);
+            opacity: 0.28;
+        }
+
+        .depth-frame__img--l2 {
+            width: 28%;
+            filter: brightness(0.2) saturate(0.45) blur(7px);
+            opacity: 0.34;
+        }
+
+        .depth-frame__img--l3 {
+            width: 38%;
+            filter: brightness(0.26) saturate(0.5) blur(6px);
+            opacity: 0.42;
+        }
+
+        .depth-frame__img--l4 {
+            width: 48%;
+            filter: brightness(0.32) saturate(0.55) blur(5px);
+            opacity: 0.52;
+        }
+
+        .depth-frame__img--l5 {
+            width: 60%;
+            filter: brightness(0.4) saturate(0.62) blur(3.5px);
+            opacity: 0.64;
+        }
+
+        .depth-frame__img--l6 {
+            width: 72%;
+            filter: brightness(0.48) saturate(0.7) blur(2px);
+            opacity: 0.78;
+        }
+
+        .depth-frame__img--l7 {
+            width: 86%;
+            filter: brightness(0.56) saturate(0.78) blur(0.5px);
+            opacity: 0.92;
+        }
+
+        @media (max-width: 900px) {
+            .depth-frame {
+                display: none;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
+    <div class="depth-frame" aria-hidden="true">
+        <div class="depth-frame__side depth-frame__side--left">
+            <img class="depth-frame__img depth-frame__img--l1" src="../img/ship2.jpg" alt="" style="top: -2%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
+            <img class="depth-frame__img depth-frame__img--l2" src="../img/Mjolnir2.jpg" alt="" style="top: 14%; transform: translateX(calc(-50% + 14px)) rotate(4deg);">
+            <img class="depth-frame__img depth-frame__img--l3" src="../img/robo2.jpg" alt="" style="top: 24%; transform: translateX(calc(-50% - 9px)) rotate(-3deg);">
+            <img class="depth-frame__img depth-frame__img--l4" src="../img/turret3.jpg" alt="" style="top: 40%; transform: translateX(calc(-50% + 20px)) rotate(6deg);">
+            <img class="depth-frame__img depth-frame__img--l5" src="../img/Mjolnir3.jpg" alt="" style="top: 53%; transform: translateX(calc(-50% - 14px)) rotate(-5deg);">
+            <img class="depth-frame__img depth-frame__img--l6" src="../img/ship1.jpg" alt="" style="top: 66%; transform: translateX(calc(-50% + 8px)) rotate(2deg);">
+            <img class="depth-frame__img depth-frame__img--l7" src="../img/robocube_sentry_face.jpg" alt="" style="top: 81%; transform: translateX(calc(-50% - 6px)) rotate(-2deg);">
+        </div>
+        <div class="depth-frame__side depth-frame__side--right">
+            <img class="depth-frame__img depth-frame__img--l1" src="../img/turret4.jpg" alt="" style="top: 1%; transform: translateX(calc(-50% + 16px)) rotate(5deg);">
+            <img class="depth-frame__img depth-frame__img--l2" src="../img/robo3.jpg" alt="" style="top: 12%; transform: translateX(calc(-50% - 12px)) rotate(-4deg);">
+            <img class="depth-frame__img depth-frame__img--l3" src="../img/Mjolnir4.jpg" alt="" style="top: 29%; transform: translateX(calc(-50% + 10px)) rotate(3deg);">
+            <img class="depth-frame__img depth-frame__img--l4" src="../img/ship3.jpg" alt="" style="top: 38%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
+            <img class="depth-frame__img depth-frame__img--l5" src="../img/turret2.jpg" alt="" style="top: 56%; transform: translateX(calc(-50% + 13px)) rotate(4deg);">
+            <img class="depth-frame__img depth-frame__img--l6" src="../img/robo1.jpg" alt="" style="top: 63%; transform: translateX(calc(-50% - 9px)) rotate(-3deg);">
+            <img class="depth-frame__img depth-frame__img--l7" src="../img/turret5.jpg" alt="" style="top: 79%; transform: translateX(calc(-50% + 7px)) rotate(2deg);">
+        </div>
+    </div>
+
     {% include nav.html %}
 
     {% include hero.html title="Check out some of my work!" %}
