@@ -53,47 +53,54 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
         }
 
-        /* l1 = farthest into the distance, l7 = nearest */
-        .depth-frame__img--l1 {
-            width: 20%;
+        /* d1 = farthest into the distance, d8 = nearest — none get very
+           prominent, so the whole range stays muted even up close */
+        .depth-frame__img--d1 {
+            width: 15%;
+            filter: brightness(0.13) saturate(0.35) blur(9px);
+            opacity: 0.16;
+        }
+
+        .depth-frame__img--d2 {
+            width: 21%;
             filter: brightness(0.16) saturate(0.4) blur(8px);
+            opacity: 0.2;
+        }
+
+        .depth-frame__img--d3 {
+            width: 28%;
+            filter: brightness(0.19) saturate(0.44) blur(7px);
+            opacity: 0.24;
+        }
+
+        .depth-frame__img--d4 {
+            width: 35%;
+            filter: brightness(0.22) saturate(0.48) blur(6px);
             opacity: 0.28;
         }
 
-        .depth-frame__img--l2 {
-            width: 28%;
-            filter: brightness(0.2) saturate(0.45) blur(7px);
-            opacity: 0.34;
+        .depth-frame__img--d5 {
+            width: 43%;
+            filter: brightness(0.25) saturate(0.52) blur(5px);
+            opacity: 0.32;
         }
 
-        .depth-frame__img--l3 {
-            width: 38%;
-            filter: brightness(0.26) saturate(0.5) blur(6px);
-            opacity: 0.42;
+        .depth-frame__img--d6 {
+            width: 51%;
+            filter: brightness(0.28) saturate(0.56) blur(4px);
+            opacity: 0.36;
         }
 
-        .depth-frame__img--l4 {
-            width: 48%;
-            filter: brightness(0.32) saturate(0.55) blur(5px);
-            opacity: 0.52;
+        .depth-frame__img--d7 {
+            width: 59%;
+            filter: brightness(0.32) saturate(0.6) blur(2.5px);
+            opacity: 0.4;
         }
 
-        .depth-frame__img--l5 {
-            width: 60%;
-            filter: brightness(0.4) saturate(0.62) blur(3.5px);
-            opacity: 0.64;
-        }
-
-        .depth-frame__img--l6 {
-            width: 72%;
-            filter: brightness(0.48) saturate(0.7) blur(2px);
-            opacity: 0.78;
-        }
-
-        .depth-frame__img--l7 {
-            width: 86%;
-            filter: brightness(0.56) saturate(0.78) blur(0.5px);
-            opacity: 0.92;
+        .depth-frame__img--d8 {
+            width: 67%;
+            filter: brightness(0.36) saturate(0.64) blur(1.5px);
+            opacity: 0.44;
         }
 
         @media (max-width: 900px) {
@@ -108,22 +115,26 @@
 <body>
     <div class="depth-frame" aria-hidden="true">
         <div class="depth-frame__side depth-frame__side--left">
-            <img class="depth-frame__img depth-frame__img--l1" src="../img/ship2.jpg" alt="" style="top: -2%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
-            <img class="depth-frame__img depth-frame__img--l2" src="../img/Mjolnir2.jpg" alt="" style="top: 14%; transform: translateX(calc(-50% + 14px)) rotate(4deg);">
-            <img class="depth-frame__img depth-frame__img--l3" src="../img/robo2.jpg" alt="" style="top: 24%; transform: translateX(calc(-50% - 9px)) rotate(-3deg);">
-            <img class="depth-frame__img depth-frame__img--l4" src="../img/turret3.jpg" alt="" style="top: 40%; transform: translateX(calc(-50% + 20px)) rotate(6deg);">
-            <img class="depth-frame__img depth-frame__img--l5" src="../img/Mjolnir3.jpg" alt="" style="top: 53%; transform: translateX(calc(-50% - 14px)) rotate(-5deg);">
-            <img class="depth-frame__img depth-frame__img--l6" src="../img/ship1.jpg" alt="" style="top: 66%; transform: translateX(calc(-50% + 8px)) rotate(2deg);">
-            <img class="depth-frame__img depth-frame__img--l7" src="../img/robocube_sentry_face.jpg" alt="" style="top: 81%; transform: translateX(calc(-50% - 6px)) rotate(-2deg);">
+            <img class="depth-frame__img depth-frame__img--d7" src="../img/ship2.jpg" alt="" style="top: -3%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
+            <img class="depth-frame__img depth-frame__img--d2" src="../img/Mjolnir2.jpg" alt="" style="top: 11%; transform: translateX(calc(-50% + 14px)) rotate(9deg);">
+            <img class="depth-frame__img depth-frame__img--d8" src="../img/robo2.jpg" alt="" style="top: 20%; transform: translateX(calc(-50% - 9px)) rotate(-3deg);">
+            <img class="depth-frame__img depth-frame__img--d1" src="../img/turret3.jpg" alt="" style="top: 33%; transform: translateX(calc(-50% + 20px)) rotate(6deg);">
+            <img class="depth-frame__img depth-frame__img--d5" src="../img/Mjolnir3.jpg" alt="" style="top: 43%; transform: translateX(calc(-50% - 14px)) rotate(-8deg);">
+            <img class="depth-frame__img depth-frame__img--d3" src="../img/ship1.jpg" alt="" style="top: 55%; transform: translateX(calc(-50% + 8px)) rotate(2deg);">
+            <img class="depth-frame__img depth-frame__img--d6" src="../img/robocube_sentry_face.jpg" alt="" style="top: 64%; transform: translateX(calc(-50% - 6px)) rotate(-2deg);">
+            <img class="depth-frame__img depth-frame__img--d1" src="../img/turret_wireframe.jpg" alt="" style="top: 76%; transform: translateX(calc(-50% + 11px)) rotate(5deg);">
+            <img class="depth-frame__img depth-frame__img--d4" src="../img/Mjolnir1.jpg" alt="" style="top: 88%; transform: translateX(calc(-50% - 16px)) rotate(-5deg);">
         </div>
         <div class="depth-frame__side depth-frame__side--right">
-            <img class="depth-frame__img depth-frame__img--l1" src="../img/turret4.jpg" alt="" style="top: 1%; transform: translateX(calc(-50% + 16px)) rotate(5deg);">
-            <img class="depth-frame__img depth-frame__img--l2" src="../img/robo3.jpg" alt="" style="top: 12%; transform: translateX(calc(-50% - 12px)) rotate(-4deg);">
-            <img class="depth-frame__img depth-frame__img--l3" src="../img/Mjolnir4.jpg" alt="" style="top: 29%; transform: translateX(calc(-50% + 10px)) rotate(3deg);">
-            <img class="depth-frame__img depth-frame__img--l4" src="../img/ship3.jpg" alt="" style="top: 38%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
-            <img class="depth-frame__img depth-frame__img--l5" src="../img/turret2.jpg" alt="" style="top: 56%; transform: translateX(calc(-50% + 13px)) rotate(4deg);">
-            <img class="depth-frame__img depth-frame__img--l6" src="../img/robo1.jpg" alt="" style="top: 63%; transform: translateX(calc(-50% - 9px)) rotate(-3deg);">
-            <img class="depth-frame__img depth-frame__img--l7" src="../img/turret5.jpg" alt="" style="top: 79%; transform: translateX(calc(-50% + 7px)) rotate(2deg);">
+            <img class="depth-frame__img depth-frame__img--d3" src="../img/turret4.jpg" alt="" style="top: 0%; transform: translateX(calc(-50% + 16px)) rotate(5deg);">
+            <img class="depth-frame__img depth-frame__img--d8" src="../img/robo3.jpg" alt="" style="top: 10%; transform: translateX(calc(-50% - 12px)) rotate(-4deg);">
+            <img class="depth-frame__img depth-frame__img--d1" src="../img/Mjolnir4.jpg" alt="" style="top: 23%; transform: translateX(calc(-50% + 10px)) rotate(8deg);">
+            <img class="depth-frame__img depth-frame__img--d6" src="../img/ship3.jpg" alt="" style="top: 32%; transform: translateX(calc(-50% - 18px)) rotate(-6deg);">
+            <img class="depth-frame__img depth-frame__img--d2" src="../img/turret2.jpg" alt="" style="top: 45%; transform: translateX(calc(-50% + 13px)) rotate(4deg);">
+            <img class="depth-frame__img depth-frame__img--d7" src="../img/robo1.jpg" alt="" style="top: 54%; transform: translateX(calc(-50% - 9px)) rotate(-9deg);">
+            <img class="depth-frame__img depth-frame__img--d1" src="../img/turret5.jpg" alt="" style="top: 67%; transform: translateX(calc(-50% + 7px)) rotate(2deg);">
+            <img class="depth-frame__img depth-frame__img--d5" src="../img/robocube_sentry_wireframe.jpg" alt="" style="top: 77%; transform: translateX(calc(-50% - 14px)) rotate(6deg);">
+            <img class="depth-frame__img depth-frame__img--d4" src="../img/ship1.jpg" alt="" style="top: 89%; transform: translateX(calc(-50% + 9px)) rotate(-4deg);">
         </div>
     </div>
 
