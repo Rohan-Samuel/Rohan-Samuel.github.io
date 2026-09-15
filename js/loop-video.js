@@ -32,19 +32,38 @@
         label();
     }
 
+    function start(video) {
+        video.controls = false;
+        // autoplay can be refused (low power mode, browser policy); the poster
+        // stays up and the button below still works, so don't chase the promise.
+        var started = video.play();
+        if (started && started.catch) started.catch(function () {});
+    }
+
+    // Calling play() straight away pulls the whole file down even when the clip is
+    // far below the fold, which defeats preload="metadata". Wait until it's near.
+    var watcher = window.IntersectionObserver ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting || calm.matches) return;
+            start(entry.target);
+            watcher.unobserve(entry.target);
+        });
+    }, { rootMargin: "200px" }) : null;
+
     function apply() {
         Array.prototype.forEach.call(clips, function (video) {
             if (calm.matches) {
                 video.autoplay = false;
                 video.controls = true;
                 video.pause();
+                if (watcher) watcher.unobserve(video);
                 return;
             }
-            video.controls = false;
-            // autoplay can be refused (low power mode, browser policy); the poster
-            // stays up and the button below still works, so don't chase the promise.
-            var started = video.play();
-            if (started && started.catch) started.catch(function () {});
+            // autoplay would download it regardless of where it sits on the page.
+            video.autoplay = false;
+            video.preload = "metadata";
+            if (watcher) watcher.observe(video);
+            else start(video);
         });
     }
 

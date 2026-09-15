@@ -413,6 +413,18 @@
             return isVideoItem(item) ? item.poster : item;
         }
 
+        // Gallery tiles render at 203-423 px but the list they come from is the
+        // lightbox's, at full resolution. Point the tile at its 800 px copy where
+        // one exists; the lightbox keeps using the original.
+        const TILED = new Set(["robocube_sentry_face.jpg", "Mjolnir1.jpg",
+                               "robo1.jpg", "ship1.jpg", "turret5.jpg"]);
+
+        function galleryTileSrc(item) {
+            const src = itemThumbSrc(item);
+            const name = src.split("/").pop();
+            return TILED.has(name) ? src.replace("../img/", "../img/tiles/") : src;
+        }
+
         function createGalleryItem(project, index) {
             const item = document.createElement("button");
             item.type = "button";
@@ -422,7 +434,7 @@
             const img = document.createElement("img");
             img.loading = "lazy";
             img.decoding = "async";
-            img.src = itemThumbSrc(project.images[0]);
+            img.src = galleryTileSrc(project.images[0]);
             img.alt = project.title + " preview";
             item.appendChild(img);
 
