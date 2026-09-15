@@ -1360,6 +1360,70 @@ h3 {
     padding-block: 3px;
 }
 
+/* Condensed experience list for the homepage. The full timeline lives on About;
+   here it is three rows a recruiter can read without scrolling past them. */
+.experience-brief {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(37, 42, 52, 0.14);
+}
+
+.experience-brief li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(37, 42, 52, 0.14);
+}
+
+.experience-brief__role {
+    grid-column: 1;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--secondary-color);
+}
+
+.experience-brief__org {
+    grid-column: 1;
+    color: var(--tertiary-ink);
+    font-size: 0.92rem;
+}
+
+.experience-brief__year {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 0.88rem;
+    color: var(--secondary-color);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.experience-brief__more {
+    margin: 16px 0 0;
+}
+
+.experience-brief__more a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    color: var(--tertiary-ink);
+    font-weight: 600;
+}
+
+@media (max-width: 620px) {
+    .experience-brief li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .experience-brief__year {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 2px;
+    }
+}
+
 /* ============= Resume Section =============== */
 
 .resume-section {

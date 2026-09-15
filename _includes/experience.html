@@ -1,4 +1,27 @@
 <div class="experiences">
+{% if include.compact %}
+    <h2>Experience &amp; education</h2>
+    <ul class="experience-brief">
+        <li>
+            <span class="experience-brief__role">Lab Instructor</span>
+            <span class="experience-brief__org">Kwantlen Polytechnic University, Entertainment Arts</span>
+            <span class="experience-brief__year">Jan &ndash; Aug 2025</span>
+        </li>
+        <li>
+            <span class="experience-brief__role">Teaching Assistant</span>
+            <span class="experience-brief__org">Simon Fraser University, IAT 343 Animation</span>
+            <span class="experience-brief__year">Sep 2023 &ndash; Apr 2025</span>
+        </li>
+        <li>
+            <span class="experience-brief__role">BSc, Interactive Arts &amp; Technology</span>
+            <span class="experience-brief__org">Simon Fraser University, SIAT</span>
+            <span class="experience-brief__year">2019 &ndash; 2023</span>
+        </li>
+    </ul>
+    <p class="experience-brief__more">
+        <a href="{{ '/about.html' | relative_url }}">Full history, coursework and what I did in each role &rarr;</a>
+    </p>
+{% else %}
     <h2>Experience</h2>
     <div class="experience">
         <div class="year">Jan – Aug 2025</div>
@@ -54,4 +77,5 @@
                 interest in blending code, visuals, and sound took shape.</p>
         </div>
     </div>
+{% endif %}
 </div>
